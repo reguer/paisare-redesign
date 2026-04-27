@@ -1,62 +1,47 @@
-# Epics & Stories
+# Epics & Stories — Índice
+> **Archivo canónico:** [`docs/epics/website-redesign-epics-stories.md`](docs/epics/website-redesign-epics-stories.md)
+> Este archivo es solo un resumen de referencia rápida. El documento completo con las 17 Epics, todas las Stories y sus criterios de aceptación está en el archivo canónico arriba.
 
-## Epic 1: Cambio de plantilla sin perder contenido
+---
 
-Objetivo: reemplazar la experiencia visual actual manteniendo los datos comerciales principales de Paisare.
+## Estado por fase (resumen)
 
-Historias:
+| Fase | Nombre | Estado |
+|---|---|---|
+| 0 | Auditoría y documentación | Completado (2026-04-27) |
+| 0.5 | Baseline real de producción WordPress | Pendiente (bloqueado P11, P12) |
+| 1A | Centralizar WA/config, corregir http→https | Pendiente (bloqueado P1) |
+| 1B | Limpiar tweaks-panel, agregar OG/Schema mínimo | Pendiente (bloqueado P5) |
+| 1 | Modularizar HTML/CSS/JS | Pendiente |
+| 2 | Home mejorada | Pendiente |
+| 3 | Tienda catálogo cotizable MVP | Pendiente |
+| 4 | Servicios, portafolio y casos de estudio | Pendiente |
+| 5 | CMS / WordPress / WooCommerce (staging) | Pendiente |
+| 6 | Checkout y pagos | Pendiente |
+| 7 | Migración real a producción | Pendiente |
 
-- Como visitante, quiero entender en segundos que Paisare hace paisajismo, arquitectura, riego y mantenimiento, para saber si resuelve mi necesidad.
-- Como prospecto, quiero ver servicios claros con ejemplos concretos, para decidir que tipo de proyecto pedir.
-- Como administrador del sitio, quiero conservar el contenido actual de WordPress, para no rehacer toda la carga editorial.
+---
 
-## Epic 2: Mejor rendimiento
+## Epics (17 en total)
 
-Objetivo: reducir peso, dependencias y tiempos de carga frente al tema WordPress anterior.
+1. Auditoría del repositorio existente — **Completado**
+2. Agentes de trabajo y reducción de tokens — **Completado**
+3. Sistema de diseño sobre plantilla actual — Parcial
+4. Navegación y arquitectura de información — Pendiente
+5. Home evolutiva — Pendiente
+6. Servicios — Pendiente
+7. Portafolio y casos de estudio — Pendiente
+8. Artículos, comentarios y antispam — Pendiente
+9. Tienda en línea — Parcial (arquitectura definida)
+10. Formularios y flujos de contacto — Pendiente
+11. WhatsApp contextual — Parcial (mapa definido)
+12. WordPress, WooCommerce y CMS — Parcial (plan definido)
+13. SEO técnico y migración — Parcial (plan definido)
+14. Analytics y medición — Pendiente
+15. QA y performance — Parcial (checklists creados)
+16. Changelog, decisiones y pendientes — Activo
+17. Fases recomendadas — Ver tabla arriba
 
-Historias:
+---
 
-- Como visitante movil, quiero que la pagina cargue rapido, para poder contactar a Paisare sin esperar.
-- Como negocio, quiero imagenes optimizadas, para mostrar proyectos sin penalizar velocidad.
-- Como desarrollador, quiero minimizar CSS y JS innecesario, para evitar problemas heredados del tema anterior.
-
-## Epic 3: Conversion y contacto
-
-Objetivo: hacer que WhatsApp y el formulario generen contactos utiles.
-
-Historias:
-
-- Como prospecto, quiero enviar un mensaje por WhatsApp con contexto prellenado, para cotizar rapido.
-- Como prospecto, quiero un formulario claro y corto, para explicar mi proyecto sin friccion.
-- Como equipo Paisare, quiero recibir datos completos y limpios, para responder con menos ida y vuelta.
-
-## Epic 4: Portafolio y prueba social
-
-Objetivo: mostrar proyectos, metricas y clientes de forma convincente.
-
-Historias:
-
-- Como visitante, quiero filtrar proyectos por categoria, para ver ejemplos cercanos a mi necesidad.
-- Como prospecto, quiero ver clientes y trabajos previos, para confiar en la empresa.
-- Como equipo Paisare, quiero actualizar proyectos facilmente, para mantener el portafolio vivo.
-
-## Epic 5: Integracion con WordPress o reemplazo progresivo
-
-Objetivo: decidir la arquitectura final con bajo riesgo.
-
-Historias:
-
-- Como administrador, quiero mantener WordPress como fuente de datos si conviene, para no perder flujo editorial.
-- Como desarrollador, quiero una plantilla desacoplada o tema ligero, para mejorar performance.
-- Como negocio, quiero conservar rutas importantes, para no perder posicionamiento ni enlaces existentes.
-
-## Epic 6: Calidad, SEO y accesibilidad
-
-Objetivo: preparar la plantilla para uso real.
-
-Historias:
-
-- Como visitante, quiero navegar bien desde celular, para contactar desde cualquier dispositivo.
-- Como buscador, quiero metadata clara y estructura semantica, para indexar correctamente la pagina.
-- Como usuario con teclado o lector de pantalla, quiero controles accesibles, para poder usar el sitio sin barreras.
-
+*Versión original (6 Epics preliminares) preservada en git history — commit `c611c4e`*

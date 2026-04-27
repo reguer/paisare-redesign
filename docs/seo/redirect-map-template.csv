@@ -1,0 +1,2 @@
+url_origen,url_destino,tipo_redirect,motivo,estado,fecha_aplicacion,probado_staging,probado_produccion,notas
+https://www.paisare.com/ejemplo-viejo/,https://www.paisare.com/ejemplo-nuevo/,301,URL renombrada,pendiente,,,, Ejemplo — reemplazar con URLs reales
