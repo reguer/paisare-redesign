@@ -1,14 +1,14 @@
 # RETOMAR — Handoff rápido del proyecto Paisare Redesign
-**Última actualización:** 2026-04-28 (Lote 1B mergeado en main — PR #3 cerrado)  
+**Última actualización:** 2026-04-28 (Lote 2 en progreso — rama `feat/lote-2-home`)  
 **Para usar:** Leer este archivo al inicio de cualquier nueva conversación antes de hacer cualquier cambio.
 
 ---
 
 ## Estado actual del proyecto
 
-**Fase activa:** Lote 1B mergeado. Próximo: Lote 2 (`feat/lote-2-*`) desde `main`.  
-**Rama activa actual:** `main` — lista para abrir nueva rama de Lote 2  
-**Preview pública (GitHub Pages):** https://reguer.github.io/paisare-redesign/ (branch: feat/lote-1b-cleanup)  
+**Fase activa:** Lote 2 en progreso — rama `feat/lote-2-home` (desde `main`).  
+**Rama activa actual:** `feat/lote-2-home` — PR pendiente de abrir  
+**Preview pública (GitHub Pages):** https://reguer.github.io/paisare-redesign/ (refleja `main`; actualizar tras merge)  
 **Sitio de producción:** https://www.paisare.com/ — WordPress con tema Select 2.4.1. **NO TOCAR.**
 
 ---
@@ -20,8 +20,9 @@
 | Rama de documentación | `feat/fase-0-docs` (mergeada en main — PR #1) |
 | Rama lote 1A | `feat/lote-1a-config` (mergeada en main — PR #2) |
 | Rama lote 1B | `feat/lote-1b-cleanup` (mergeada en main — PR #3) |
+| Rama lote 2 | `feat/lote-2-home` (en progreso — PR pendiente) |
 | Branch principal | `main` |
-| Siguiente rama | `feat/lote-2-*` (crear desde `main`) |
+| Siguiente rama | `feat/lote-2-portafolio` o `feat/lote-2-clientes` (crear desde `main` tras merge) |
 | Regla obligatoria | **Nunca commits directo a `main`. Siempre rama + PR.** |
 | Repo remoto | `https://github.com/reguer/paisare-redesign.git` |
 
@@ -70,12 +71,22 @@
 - [x] Lote 1B+: `#nosotros` (misión, visión, quiénes somos), `#testimonios` (3 reseñas Homify reales)
 - [x] Lote 1B+: Logo real en nav (favicon.svg) y footer (logo-white.svg), LinkedIn + Google Maps en footer
 - [x] Lote 1B+: Schema.org `sameAs` con FB/IG/LinkedIn/Pinterest, og:image con foto real del portafolio
+- [x] Lote 2: `#faq` con 10 preguntas autogeneradas + Schema FAQPage
+- [x] Lote 2: Modal de detalle del portafolio (clic abre galería + descripción + CTA WA)
+- [x] Lote 2: Botón "Ver más proyectos" con respeto de filtro activo (muestra 4, expande al clic)
+- [x] Lote 2: `assets/logos/clientes/` creada — espera logos del cliente (PNG/SVG fondo transparente)
+- [x] Lote 2: `assets/portfolio/general/` creada — para imágenes de apoyo
+- [x] Lote 2: D09 (#stats eliminada), D10 (performance al final), D11 (evaluar Astro+Sanity)
 
 ---
 
 ## Qué está en progreso
 
-- Nada. Lote 1B mergeado. Próximo: acordar alcance de Lote 2 con el cliente.
+- Lote 2 (`feat/lote-2-home`) — PR pendiente de abrir
+  - FAQ borrador en HTML (cliente debe revisar respuestas)
+  - Portafolio interactivo con modal (imágenes aún desde paisare.com; pendiente locales)
+  - Logos de clientes: carpeta lista, cliente debe entregar archivos
+  - Lista de proyectos del portafolio: pendiente de confirmar para crear carpetas individuales
 
 ---
 
@@ -83,9 +94,12 @@
 
 | Lote/Fase | Bloqueado por |
 |---|---|
-| Fase 2 (home mejorada) | Contenido real: Nosotros, Testimonios, FAQ; logos de clientes (P4) |
-| Fase 0.5 (baseline WordPress) | **P11/P12 — acceso a Search Console y admin WP** |
-| Fase 2 (home mejorada) | Stats (P3: ¿eliminar o reemplazar?), logos (P4: nuevos logos pendientes), contenido de Nosotros/Testimonios/FAQ por recibir |
+| Lote 2 — Logos clientes | T8: cliente debe entregar archivos PNG/SVG con fondo transparente a `assets/logos/clientes/` |
+| Lote 2 — Portafolio local | T1: inventario de imágenes antes de descargar desde paisare.com; lista de proyectos confirmada |
+| Lote 2 — FAQ final | Cliente debe revisar y afinar las 10 respuestas autogeneradas |
+| Fase 3 (tienda MVP) | T12: catálogo de productos con nombres y precios (no existe aún) |
+| Fase 5 (CMS) | D11: decidir stack final — WordPress + WooCommerce vs Astro + Sanity antes de staging |
+| Fase 0.5 (baseline WP) | T2/T3: crawl de paisare.com e inventario de URLs — no bloquea Fase 2 |
 | Fase 3 (tienda MVP) | Catálogo de productos (P9) |
 | Fase 6 (checkout) | P6, P7, P8, P9, P13 — reglas comerciales completas |
 

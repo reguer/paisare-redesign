@@ -58,3 +58,26 @@
 **Fecha:** 2026-04-27  
 **Decisión:** El formulario de contacto actual (`#contact-form`) es solo visual y no debe usarse en producción. Para producción se requiere: endpoint real, validación server-side, antispam real, rate limiting y confirmación por email.  
 **Por qué:** El formulario actual simula el envío sin enviarlo realmente. Publicarlo así generaría expectativas falsas en el cliente y no capturaría ningún lead real.
+
+---
+
+## D09 — Sección #stats eliminada
+**Fecha:** 2026-04-28  
+**Decisión:** La sección de métricas (`#stats`) se elimina del prototipo y no se incluirá en el sitio final con datos falsos.  
+**Por qué:** Las métricas publicadas no eran datos reales ni actualizados. El cliente confirmó que si la sección no aporta valor veraz, es mejor eliminarla que publicar números inventados. Fue eliminada en Lote 1B.  
+**Alternativa descartada:** Reemplazar con barra de confianza o diferenciadores — se revisará en Fase 2 si el cliente provee datos reales o texto de valor.
+
+---
+
+## D10 — Performance/accesibilidad: diferir a Fase 2 post-estructura
+**Fecha:** 2026-04-28  
+**Decisión:** Las mejoras de performance (lazy loading, minificación, WebP) y accesibilidad (WCAG, aria-labels) se ejecutan después de que la estructura general del sitio, imágenes y contenido estén definidos.  
+**Por qué:** Optimizar antes de tener la estructura final es trabajo que se puede perder o rehacer. El orden correcto es: estructura → contenido → imágenes → performance.
+
+---
+
+## D11 — Stack: revisar alternativa Astro + Sanity CMS
+**Fecha:** 2026-04-28  
+**Decisión:** Apertura formal para evaluar Astro (frontend estático) + Sanity (headless CMS) como alternativa a WordPress + WooCommerce. La decisión final se toma antes de iniciar Fase 5 (CMS/WordPress staging).  
+**Por qué:** Ingeniero externo sugirió el stack. Tiene ventajas reales en performance y seguridad para la parte institucional. El mayor bloqueante es reemplazar WooCommerce para la tienda — requiere análisis de alternativas (Shopify, Snipcart, solución custom).  
+**Ver análisis completo:** Conversación 2026-04-28 — pendiente de documentar en `docs/DECISIONS.md` con análisis detallado.

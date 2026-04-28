@@ -2,6 +2,38 @@
 
 Todos los cambios notables de este proyecto se documentan aqui.
 
+## 2026-04-28 — Lote 2 inicial: FAQ, portafolio interactivo, carpetas de assets, decisiones de arquitectura
+
+**Rama:** `feat/lote-2-home`  
+**Epic/Story:** E5-S5.6 (FAQ), E7-S7.1 (portafolio interactivo), E16 (decisiones), E17 (fases)
+
+### Creado
+
+- `assets/logos/clientes/` — carpeta para logos nuevos del cliente (PNG/SVG fondo transparente)
+- `assets/portfolio/general/` — carpeta para imágenes generales de apoyo (no de un proyecto específico)
+- Sección `#faq` con 10 preguntas/respuestas autogeneradas sobre paisajismo y construcción
+- Schema `FAQPage` JSON-LD en el `<head>` para SEO enriquecido
+- Modal de detalle del portafolio: al hacer clic en un proyecto se abre panel con galería, descripción y CTA de WhatsApp
+
+### Modificado en `Paisare Redesign.html`
+
+- Portfolio: cada ítem tiene `data-id` y es interactivo (role="button", tabindex, aria-label)
+- Portfolio: botón "Ver más proyectos →" que respeta el filtro activo (muestra 4 inicialmente, expande al clic)
+- Portfolio: motor de datos JS `pfProjects` con nombre, categoría, descripción y array de imágenes por proyecto
+
+### Modificado en `docs/`
+
+- `docs/DECISIONS.md`: agregadas D09 (#stats eliminada), D10 (performance diferida), D11 (apertura a Astro+Sanity)
+- `docs/epics/website-redesign-epics-stories.md`: Story 5.4/5.5 marcadas Completado, Story 5.6 marcada Completado borrador, Epic 17 tabla actualizada con estados reales y nota de secuencia (0.5 y 1 no bloquean Fase 2), Story 13.3 parcialmente completada
+
+### Confirmado / aclarado
+
+- `#stats` eliminada en Lote 1B — no existía en el HTML actual (D09)
+- Fase 0.5 (baseline WP) y Fase 1 (modularización) no bloquean Fase 2 del prototipo
+- Performance/accesibilidad se ejecuta al final, después de estructura + imágenes (D10)
+
+---
+
 ## 2026-04-27 — Lote 1B (ampliado): Logo real, Nosotros, Testimonios y redes sociales
 
 **Rama:** `feat/lote-1b-cleanup`  

@@ -105,24 +105,17 @@ Inspección → Documentación → Mapeo → Modularización → Mejora visual �
 **Criterios:** Sin precios falsos · Productos marcados pendientes si no hay datos reales
 
 ### Story 5.4 — Sección Nosotros
-**Estado:** Pendiente (Fase 2) — solicitado por cliente 2026-04-27  
-**Contenido:** Historia del despacho · Foto grupal del equipo · Valores corporativos  
-**Criterios:** Texto real del cliente · Foto real del equipo · CTA a WhatsApp o formulario  
-**Implementación:** Página estática WP, sección en home (resumen) + página interior `/nosotros/`
+**Estado:** Completado (Lote 1B+, 2026-04-28) — misión, visión, quiénes somos con contenido real  
+**Pendiente Fase 4:** Foto real del equipo · Página interior `/nosotros/` en WordPress  
+**Implementación actual:** Sección estática en prototipo HTML
 
 ### Story 5.5 — Sección Testimonios
-**Estado:** Pendiente (Fase 2/4) — solicitado por cliente 2026-04-27  
-**Contenido:** Reseñas de clientes con foto (si autorizan), nombre, proyecto, calificación o texto  
-**Criterios:** Solo testimonios reales y autorizados · Foto opcional · CTA "Cotiza tu proyecto"  
-**CPT:** `testimonio` (definido en `docs/cms/custom-post-types.md`)  
-**Diseño:** Cards en slider o grid · Pendiente: cliente provea primeros testimonios reales
+**Estado:** Completado (Lote 1B+, 2026-04-28) — 3 reseñas reales de Homify  
+**Pendiente Fase 4:** Más testimonios (Google, Facebook) · CPT `testimonio` en WordPress
 
 ### Story 5.6 — Sección FAQ
-**Estado:** Pendiente (Fase 2) — solicitado por cliente 2026-04-27  
-**Contenido:** Accordion con preguntas frecuentes sobre precios, tiempos, garantías, proceso  
-**Criterios:** Preguntas reales del cliente · Schema `FAQPage` para SEO · CTA "¿Tienes otra duda?"  
-**CPT:** `faq` (definido en `docs/cms/custom-post-types.md`)  
-**Pendiente:** Cliente provea lista de preguntas y respuestas reales
+**Estado:** Completado borrador (Lote 2, 2026-04-28) — 10 preguntas autogeneradas con Schema FAQPage  
+**Pendiente:** Cliente revise y afine respuestas · CPT `faq` en WordPress (Fase 5)
 
 ---
 
@@ -248,8 +241,8 @@ Inspección → Documentación → Mapeo → Modularización → Mejora visual �
 **Estado:** Plantilla creada (Fase 0) — mapa real pendiente (Fase 7)
 
 ### Story 13.3 — Schema.org
-**Estado:** Pendiente (Lote 1B) — bloqueado por datos validados (P5)  
-**Types requeridos:** Organization · LocalBusiness · Service · Product · Article · BreadcrumbList · FAQPage
+**Estado:** Parcialmente completado (Lote 1B, 2026-04-28) — LocalBusiness + FAQPage implementados con datos reales  
+**Types pendientes (Fase 4/5):** Service · Product · Article · BreadcrumbList
 
 ---
 
@@ -278,16 +271,21 @@ Inspección → Documentación → Mapeo → Modularización → Mejora visual �
 
 ## Epic 17 — Fases recomendadas
 
+> **Nota de secuencia:** Las fases 0.5 y 1 (Modularización) NO bloquean la Fase 2 del prototipo HTML.
+> Se pueden ejecutar en paralelo. Fase 0.5 solo se requiere antes de iniciar Fase 5 (staging WP).
+> Fase 1 (Modularización) se puede diferir hasta que la estructura de Fase 2 esté aprobada.
+> Performance (Epic 15) se ejecuta al final, después de estructura + imágenes + contenido definidos (D10).
+
 | Fase | Nombre | Estado |
 |---|---|---|
 | 0 | Auditoría y documentación | **Completado** (2026-04-27) |
-| 0.5 | Baseline real de producción WordPress | Pendiente (bloqueado P11, P12) |
-| 1A | Centralizar WA/config, corregir http→https | Pendiente (bloqueado P1) |
-| 1B | Limpiar tweaks-panel, agregar OG/Schema mínimo | Pendiente (bloqueado P5) |
-| 1 | Modularizar HTML/CSS/JS | Pendiente |
-| 2 | Home mejorada | Pendiente |
-| 3 | Tienda catálogo cotizable MVP | Pendiente (bloqueado P9) |
-| 4 | Servicios, portafolio y casos de estudio | Pendiente |
-| 5 | CMS / WordPress / WooCommerce (staging) | Pendiente |
-| 6 | Checkout y pagos | Pendiente (bloqueado P6, P7, P8, P13) |
+| 0.5 | Baseline real de producción WordPress | Pendiente — acceso WP/SC confirmado (P11, P12 resueltos). **No bloquea Fase 2.** |
+| 1A | Centralizar WA/config | **Completado** (Lote 1A, 2026-04-27) |
+| 1B | Limpiar tweaks-panel, OG/Schema, Nosotros, Testimonios, Logo real | **Completado** (Lote 1B, 2026-04-28) |
+| 1 | Modularizar HTML/CSS/JS en archivos separados | Pendiente. **No bloquea Fase 2** del prototipo. Ejecutar antes de Fase 5. |
+| 2 | Home mejorada: FAQ ✓ · portafolio interactivo ✓ · logos clientes · #stats eliminado ✓ · hero/nav | **En progreso** (Lote 2, 2026-04-28) |
+| 3 | Tienda catálogo cotizable MVP | Pendiente (bloqueado T12: catálogo real de productos) |
+| 4 | Servicios, portafolio detallado y casos de estudio | Pendiente (bloqueado T1: inventario de assets) |
+| 5 | CMS / WordPress / WooCommerce (staging) | Pendiente — revisar D11: posible cambio de stack a Astro + Sanity |
+| 6 | Checkout y pagos | Pendiente (bloqueado T4, T5: pasarela y CLABE) |
 | 7 | Migración real a producción | Pendiente |
