@@ -15,7 +15,7 @@
 | P5 | ¿Dirección exacta, teléfono oficial y horario? | Lote 1B (Schema/OG), Footer | **PARCIALMENTE RESUELTO** 2026-04-27 |
 | P6 | ¿IVA, facturas y métodos de pago? | Fase 6 (checkout) | **RESUELTO** 2026-04-27 — ver notas |
 | P7 | ¿Envíos a domicilio o recolección? ¿Costo? | Fase 6 (checkout) | **RESUELTO** 2026-04-27 — ver notas |
-| P8 | ¿Cuál es el radio o zonas de cobertura de envíos? | Fase 6 (checkout) | Abierto |
+| P8 | ¿Radio de cobertura de servicios y envíos? | Fase 6 (checkout) | **RESUELTO** 2026-04-27 — ver notas |
 | P9 | ¿Existe un catálogo de productos con nombres, descripciones, precios y SKUs? ¿Hay stock administrado? | Fase 3 (tienda catálogo) | Abierto |
 | P10 | ¿El dominio `paisare.com` se conserva en el mismo servidor o se migra a uno nuevo? | Fase 7 (migración) | Abierto |
 | P11 | ¿Hay acceso a Google Search Console y/o GA4 del sitio actual? ¿Quién tiene la cuenta? | Fase 0.5 (baseline SEO) | Abierto |
@@ -52,6 +52,13 @@ Las métricas actuales (27,060 plantas, 226 proyectos, 163 clientes, 1,095 tazas
 
 **P4 — Logos de clientes:**  
 Los 7 logos actuales están desactualizados. Existen nuevos logos. Pendiente: el cliente debe proveer los nuevos archivos de logos para la sección `#clientes`.
+
+**P8 — Radio de cobertura:**
+- **Servicios (paisajismo, riego, construcción, mantenimiento):** cobertura nacional — casi todo el país según el tipo de trabajo y alcance del proyecto (se evalúa caso por caso)
+- **Venta de productos:** cobertura variable según el tipo de producto (ver P7: ligeros = nacional, plantas grandes = fletera, instalación = solo QRO)
+- **Implicación para UI/UX:** el sitio no debe mostrar restricción geográfica fija; el CTA debe invitar a cotizar y confirmar cobertura por proyecto. Formulario de cotización debe incluir campo de ubicación/estado.
+
+---
 
 **P7 — Envíos y logística:**
 - **Artículos ligeros (insumos, materiales pequeños):** envío a todo el país
