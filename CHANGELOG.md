@@ -2,6 +2,66 @@
 
 Todos los cambios notables de este proyecto se documentan aqui.
 
+## 2026-04-27 — Lote 1A: Centralizar configuración y corregir protocolos
+
+**Rama:** `feat/lote-1a-config`  
+**Epic/Story:** E1-S1.3, E11-S11.1
+
+### Creado
+
+- `src/js/config.js` — fuente única de verdad para WhatsApp, email, teléfono y horario
+  - Número real: `524427730857` (+52 442 773 0857)
+  - Email: `contacto@paisare.com`
+  - Teléfono oficina: `4422155474` (+52 442 215 5474)
+  - Función `initWhatsAppLinks()` que inicializa todos los botones WA en DOMContentLoaded
+
+### Modificado en `Paisare Redesign.html`
+
+- `<script src="src/js/config.js">` agregado al `<head>` (después de Google Fonts)
+- **19 URLs** cambiadas de `http://www.paisare.com/` → `https://www.paisare.com/` (imágenes)
+- **10+ links** de WhatsApp actualizados: `524420000000` → `524427730857`
+- **2 instancias** de `hola@paisare.com` → `contacto@paisare.com`
+- Bloque de teléfono (+52 442 215 5474 con `tel:` link) agregado en sección `#contacto`
+- Link `tel:` del teléfono agregado en footer
+- `id="footer-wa"` agregado al link de WhatsApp en footer (para `initWhatsAppLinks`)
+
+### Modificado en `docs/PENDING.md`
+
+- P1 → RESUELTO: WhatsApp `524427730857`
+- P2 → RESUELTO: `contacto@paisare.com`
+- P3 → RESUELTO (con decisión pendiente): métricas no son datos reales; propuesta de eliminar `#stats`
+- P4 → RESUELTO (con acción pendiente): logos desactualizados; nuevos logos por recibir del cliente
+- P5 → PARCIALMENTE RESUELTO: dirección confirmada para Schema.org (no para footer por seguridad), teléfono y horario confirmados
+
+### Riesgos cerrados
+
+| ID | Riesgo | Estado |
+|---|---|---|
+| R01 | WhatsApp placeholder `524420000000` | ✅ Cerrado |
+| R05 | Datos de contacto no validados | ✅ Parcialmente cerrado (falta: días horario, logos nuevos) |
+
+### Actualizaciones de documentación adicionales (misma sesión)
+
+- `docs/PENDING.md` — P3 resuelto: métricas no reales → decisión pendiente (¿eliminar o reemplazar `#stats`?)
+- `docs/PENDING.md` — P4 resuelto: logos desactualizados → nuevos logos por recibir del cliente
+- `docs/PENDING.md` — P5 parcialmente resuelto: dirección para Schema / ciudad solo para footer, horario 8:30–18:00 hrs, días pendientes
+- `docs/PENDING.md` — P6 resuelto: IVA incluido, CFDI disponible, métodos: tarjeta + USDT + SPEI + PayPal
+- `docs/design/current-template-map.md` — `#stats` marcado ⚠️ con decisión pendiente
+- `docs/design/current-template-map.md` — `#clientes` marcado ⚠️ logos desactualizados
+- `docs/design/current-template-map.md` — Nuevas secciones planificadas: `#nosotros`, `#testimonios`, `#faq`
+- `docs/epics/website-redesign-epics-stories.md` — Stories E5-S5.4, E5-S5.5, E5-S5.6 agregadas
+- `src/js/config.js` — Horario actualizado a `8:30–18:00 hrs` (días pendientes de confirmar)
+- `RETOMAR.md` — Estado actualizado a Lote 1A completado, próximo Lote 1B documentado
+
+### Pendiente inmediato (antes de Lote 1B)
+
+- Confirmar si sección `#stats` se elimina o se reemplaza con nuevas métricas
+- Recibir nuevos logos de clientes para reemplazar sección `#clientes`
+- Confirmar días del horario de atención (¿L–V únicamente o incluye sábados?)
+- Confirmar pasarela de tarjeta, CLABE SPEI y wallet USDT para Fase 6
+
+---
+
 ## 2026-04-27 — Fase 0: Auditoría y documentación
 
 **Rama:** `feat/fase-0-docs`  
