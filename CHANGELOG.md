@@ -2,6 +2,21 @@
 
 Todos los cambios notables de este proyecto se documentan aqui.
 
+## 2026-04-27 — Lote 1B (parcial): Eliminar sección #stats
+
+**Rama:** `feat/lote-1b-cleanup`  
+**Epic/Story:** E5-S5.0 (cleanup previo a Fase 2)
+
+### Eliminado de `Paisare Redesign.html`
+
+- Sección HTML `#stats` (contadores animados con métricas no reales)
+- Bloque CSS `/* STATS */` (10 líneas: `#stats`, `.stats-inner`, `.stat-n`, `.stat-plus`, `.stat-lbl`)
+- Bloque JS `// COUNTER ANIMATION` (20 líneas: `IntersectionObserver` + `setInterval` de contadores)
+
+**Motivo:** Las métricas (27,060 plantas · 226 proyectos · 163 clientes · 1,095 cafés) no son datos reales. El cliente decidió eliminar la sección. Se puede agregar en Fase 2 una sección de diferenciadores o trust bar con contenido real.
+
+---
+
 ## 2026-04-27 — Lote 1A: Centralizar configuración y corregir protocolos
 
 **Rama:** `feat/lote-1a-config`  

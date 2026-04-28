@@ -141,17 +141,6 @@ body { font-family: var(--sans); font-weight: 300; color: var(--ink); background
 }
 .svc-cta:hover { background: var(--green); }
 
-/* STATS */
-#stats { background: var(--forest); padding: clamp(4rem,8vw,6.5rem) 7vw; }
-.stats-inner { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap: 2.5rem 4rem; text-align: center; }
-.stat-n {
-  font-family: var(--serif); font-size: clamp(3.5rem,6vw,5.5rem);
-  font-weight: 300; color: #fff; line-height: 1;
-  display: flex; justify-content: center; align-items: baseline; gap: 0.08em;
-}
-.stat-plus { color: var(--mint); font-size: 0.55em; align-self: flex-start; margin-top: 0.4em; }
-.stat-lbl { color: oklch(68% 0.05 148); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; margin-top: 0.4rem; }
-
 /* PORTFOLIO */
 #portafolio { background: var(--off-white); }
 .pf-filters { display: flex; gap: 0.65rem; flex-wrap: wrap; margin: 2.5rem 0 2rem; }
@@ -492,28 +481,6 @@ footer { background: oklch(12% 0.04 148); padding: 4rem 7vw 2rem; color: rgba(25
         </div>
       </article>
 
-    </div>
-  </div>
-</section>
-
-<!-- ═══ STATS ═══ -->
-<section id="stats" aria-label="Nuestros números">
-  <div class="stats-inner">
-    <div class="reveal">
-      <div class="stat-n"><span class="count" data-target="27060">0</span><span class="stat-plus">+</span></div>
-      <p class="stat-lbl">Plantas sembradas</p>
-    </div>
-    <div class="reveal reveal-delay-1">
-      <div class="stat-n"><span class="count" data-target="226">0</span></div>
-      <p class="stat-lbl">Proyectos realizados</p>
-    </div>
-    <div class="reveal reveal-delay-2">
-      <div class="stat-n"><span class="count" data-target="163">0</span></div>
-      <p class="stat-lbl">Clientes satisfechos</p>
-    </div>
-    <div class="reveal reveal-delay-3">
-      <div class="stat-n"><span class="count" data-target="1095">0</span></div>
-      <p class="stat-lbl">Tazas de café</p>
     </div>
   </div>
 </section>
@@ -906,27 +873,6 @@ const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
 }, { threshold: 0.1 });
 revealEls.forEach(el => revealObserver.observe(el));
-
-// ── COUNTER ANIMATION ──────────────────────────────────────
-const counters = document.querySelectorAll('.count');
-const counterObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    const el = entry.target;
-    const target = parseInt(el.dataset.target);
-    const duration = 2000;
-    const step = 16;
-    const increment = target / (duration / step);
-    let current = 0;
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= target) { el.textContent = target.toLocaleString('es-MX'); clearInterval(timer); }
-      else el.textContent = Math.floor(current).toLocaleString('es-MX');
-    }, step);
-    counterObserver.unobserve(el);
-  });
-}, { threshold: 0.5 });
-counters.forEach(c => counterObserver.observe(c));
 
 // ── PORTFOLIO FILTER ──────────────────────────────────────
 const pfBtns = document.querySelectorAll('.pf-btn');
