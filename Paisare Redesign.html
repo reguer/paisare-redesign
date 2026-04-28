@@ -4,7 +4,60 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Paisare — Paisajismo y Arquitectura Experimental · Querétaro</title>
-<meta name="description" content="Diseño de jardines, paisajismo, arquitectura y mantenimiento en Querétaro. +226 proyectos realizados, 163 clientes satisfechos.">
+<meta name="description" content="Diseño de jardines, paisajismo, arquitectura exterior y mantenimiento de áreas verdes en Querétaro, México.">
+
+<!-- Favicon -->
+<link rel="icon" href="src/img/favicon.svg" type="image/svg+xml">
+
+<!-- OpenGraph -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_MX">
+<meta property="og:site_name" content="Paisare">
+<meta property="og:title" content="Paisare — Paisajismo y Arquitectura Experimental · Querétaro">
+<meta property="og:description" content="Diseño de jardines, paisajismo, arquitectura exterior y mantenimiento de áreas verdes en Querétaro, México.">
+<meta property="og:url" content="https://www.paisare.com/">
+<!-- TODO: og:image — pendiente fotografía de portada aprobada por cliente -->
+
+<!-- Schema.org JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "LandscapeArchitect"],
+  "name": "Paisare",
+  "description": "Diseño de jardines, paisajismo, arquitectura exterior y mantenimiento de áreas verdes en Querétaro, México.",
+  "url": "https://www.paisare.com/",
+  "telephone": "+524422155474",
+  "email": "contacto@paisare.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Hacienda el Salitre 410, Jardines de la Hacienda",
+    "addressLocality": "Querétaro",
+    "addressRegion": "Qro.",
+    "addressCountry": "MX"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "08:30",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "description": "Con cita previa"
+    }
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+524427730857",
+    "contactType": "customer service",
+    "contactOption": "TollFree",
+    "availableLanguage": "Spanish"
+  }
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script src="src/js/config.js"></script>
@@ -307,21 +360,6 @@ footer { background: oklch(12% 0.04 148); padding: 4rem 7vw 2rem; color: rgba(25
 .footer-nav a { color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; font-size: 0.85rem; }
 .footer-nav a:hover { color: var(--mint); }
 .footer-bottom { border-top: 1px solid oklch(20% 0.03 148); padding-top: 1.5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
-
-/* TWEAKS PANEL */
-.tweaks-panel {
-  position: fixed; bottom: 7rem; right: 1.5rem; z-index: 600;
-  background: #fff; border-radius: 14px; padding: 1.5rem;
-  box-shadow: 0 10px 50px rgba(0,0,0,0.2); width: 270px; display: none;
-}
-.tweaks-panel.open { display: block; }
-.tweaks-panel-title { font-family: var(--serif); font-size: 1.15rem; color: var(--forest); margin-bottom: 1.2rem; display: flex; justify-content: space-between; align-items: center; }
-.tweaks-close { background: none; border: none; cursor: pointer; font-size: 1.2rem; color: #999; }
-.twk-field { margin-bottom: 1rem; }
-.twk-field label { display: block; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: #888; margin-bottom: 0.4rem; }
-.twk-field input, .twk-field select { width: 100%; border: 1px solid #ddd; border-radius: 6px; padding: 0.5rem 0.75rem; font-size: 0.85rem; font-family: var(--sans); }
-.twk-divider { height: 1px; background: #eee; margin: 1rem 0; }
-.twk-label-section { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: #bbb; margin-bottom: 0.75rem; }
 
 /* REVEAL ANIMATIONS */
 .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.65s, transform 0.65s; }
@@ -805,39 +843,6 @@ footer { background: oklch(12% 0.04 148); padding: 4rem 7vw 2rem; color: rgba(25
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.106.548 4.083 1.504 5.798L.057 23.428a.5.5 0 00.615.613l5.757-1.498A11.949 11.949 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.66-.507-5.185-1.393l-.371-.22-3.848 1.001 1.028-3.741-.242-.385A9.945 9.945 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
 </a>
 
-<!-- ═══ TWEAKS PANEL ═══ -->
-<div class="tweaks-panel" id="tweaks-panel">
-  <div class="tweaks-panel-title">
-    Tweaks
-    <button class="tweaks-close" id="tweaks-close" aria-label="Cerrar panel">✕</button>
-  </div>
-  <p class="twk-label-section">WhatsApp</p>
-  <div class="twk-field">
-    <label for="twk-wa">Número (con código país)</label>
-    <input type="text" id="twk-wa" value="524427730857" placeholder="524421234567">
-  </div>
-  <div class="twk-divider"></div>
-  <p class="twk-label-section">Colores</p>
-  <div class="twk-field">
-    <label for="twk-mint">Color acento</label>
-    <input type="color" id="twk-mint" value="#6EC99A">
-  </div>
-  <div class="twk-field">
-    <label for="twk-forest">Color principal</label>
-    <input type="color" id="twk-forest" value="#162415">
-  </div>
-  <div class="twk-divider"></div>
-  <p class="twk-label-section">Fuente de encabezados</p>
-  <div class="twk-field">
-    <select id="twk-font">
-      <option value="'Cormorant Garamond', Georgia, serif">Cormorant Garamond (actual)</option>
-      <option value="'Playfair Display', Georgia, serif">Playfair Display</option>
-      <option value="'DM Serif Display', Georgia, serif">DM Serif Display</option>
-      <option value="'Fraunces', Georgia, serif">Fraunces</option>
-    </select>
-  </div>
-</div>
-
 <script>
 // ── NAV SCROLL ──────────────────────────────────────
 const nav = document.getElementById('nav');
@@ -911,45 +916,6 @@ form.addEventListener('submit', (e) => {
   // Simulate send
   form.style.display = 'none';
   formSuccess.style.display = 'block';
-});
-
-// ── TWEAKS PANEL ──────────────────────────────────────
-window.addEventListener('message', e => {
-  if (e.data && e.data.type === '__activate_edit_mode') document.getElementById('tweaks-panel').classList.add('open');
-  if (e.data && e.data.type === '__deactivate_edit_mode') document.getElementById('tweaks-panel').classList.remove('open');
-});
-window.parent.postMessage({ type: '__edit_mode_available' }, '*');
-
-document.getElementById('tweaks-close').addEventListener('click', () => {
-  document.getElementById('tweaks-panel').classList.remove('open');
-  window.parent.postMessage({ type: '__edit_mode_dismissed' }, '*');
-});
-
-function updateWaLinks(number) {
-  const base = `https://wa.me/${number}`;
-  document.getElementById('hero-wa-btn').href = `${base}?text=Hola%2C%20me%20interesa%20una%20cotizaci%C3%B3n%20de%20paisajismo`;
-  document.getElementById('svc-arq-wa').href = `${base}?text=Hola%2C%20me%20interesa%20un%20proyecto%20de%20Arquitectura%20con%20Paisare`;
-  document.getElementById('svc-pais-wa').href = `${base}?text=Hola%2C%20me%20interesa%20un%20proyecto%20de%20Paisajismo%20con%20Paisare`;
-  document.getElementById('svc-mtto-wa').href = `${base}?text=Hola%2C%20me%20interesa%20el%20servicio%20de%20Mantenimiento%20con%20Paisare`;
-  document.getElementById('pf-wa-btn').href = `${base}?text=Hola%2C%20quisiera%20ver%20m%C3%A1s%20proyectos%20de%20Paisare`;
-  document.getElementById('proc-wa-btn').href = `${base}?text=Hola%2C%20me%20gustar%C3%ADa%20empezar%20una%20visita%20al%20sitio`;
-  document.getElementById('contact-wa-big').href = `${base}?text=Hola%2C%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto%20con%20Paisare`;
-  document.getElementById('float-wa').href = `${base}?text=Hola%20Paisare%2C%20me%20interesa%20cotizar%20un%20proyecto`;
-  document.getElementById('success-wa').href = base;
-}
-
-document.getElementById('twk-wa').addEventListener('input', e => updateWaLinks(e.target.value));
-
-document.getElementById('twk-mint').addEventListener('input', e => {
-  document.documentElement.style.setProperty('--mint', e.target.value);
-  window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { accentColor: e.target.value } }, '*');
-});
-document.getElementById('twk-forest').addEventListener('input', e => {
-  document.documentElement.style.setProperty('--forest', e.target.value);
-  document.documentElement.style.setProperty('--green', e.target.value);
-});
-document.getElementById('twk-font').addEventListener('change', e => {
-  document.documentElement.style.setProperty('--serif', e.target.value);
 });
 </script>
 </body>

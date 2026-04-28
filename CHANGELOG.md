@@ -2,6 +2,35 @@
 
 Todos los cambios notables de este proyecto se documentan aqui.
 
+## 2026-04-27 — Lote 1B (completo): Cleanup, favicon y metadatos SEO
+
+**Rama:** `feat/lote-1b-cleanup`  
+**Epic/Story:** E3-S3.1 (SEO técnico mínimo), E5-S5.0 (cleanup)
+
+### Creado
+
+- `src/img/favicon.svg` — favicon SVG placeholder (fondo forest, "P" en mint) hasta que el cliente entregue el definitivo
+
+### Modificado en `Paisare Redesign.html`
+
+- **`<meta name="description">`** — eliminada la referencia a métricas no reales ("+226 proyectos, 163 clientes")
+- **Favicon** — `<link rel="icon" href="src/img/favicon.svg" type="image/svg+xml">` agregado al `<head>`
+- **OpenGraph** — agregados: `og:type`, `og:locale`, `og:site_name`, `og:title`, `og:description`, `og:url`; `og:image` marcado como TODO (pendiente foto de portada aprobada)
+- **Schema.org JSON-LD** — `LocalBusiness + LandscapeArchitect` con todos los campos confirmados: nombre, URL, teléfono, email, dirección completa, horario L–V 8:30–18:00 y sábados con cita previa
+- **`#tweaks-panel`** — eliminado completamente: bloque CSS (14 líneas), bloque HTML (31 líneas), bloque JS (38 líneas incluyendo `updateWaLinks` y sus 4 listeners)
+
+### Datos usados en Schema/OG (confirmados por cliente)
+
+- Nombre: Paisare
+- URL: https://www.paisare.com/
+- Teléfono oficina: +52 442 215 5474
+- WhatsApp: +52 442 773 0857
+- Email: contacto@paisare.com
+- Dirección: Hacienda el Salitre 410, Jardines de la Hacienda, Querétaro, Qro., México
+- Horario: L–V 8:30–18:00 · Sábados con cita previa
+
+---
+
 ## 2026-04-27 — Lote 1B (parcial): Eliminar sección #stats
 
 **Rama:** `feat/lote-1b-cleanup`  
