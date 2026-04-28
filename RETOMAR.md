@@ -1,13 +1,13 @@
 # RETOMAR — Handoff rápido del proyecto Paisare Redesign
-**Última actualización:** 2026-04-27  
+**Última actualización:** 2026-04-27 (Lote 1A completado)  
 **Para usar:** Leer este archivo al inicio de cualquier nueva conversación antes de hacer cualquier cambio.
 
 ---
 
 ## Estado actual del proyecto
 
-**Fase activa:** Fase 0 completada. Listo para Lote 1A (primer cambio de código).  
-**Rama activa recomendada:** Crear `feat/lote-1a-config` desde `main` después de merge de `feat/fase-0-docs`.  
+**Fase activa:** Lote 1A completado. Pendiente: merge de `feat/fase-0-docs` y `feat/lote-1a-config` vía PR.  
+**Rama activa actual:** `feat/lote-1a-config` (lista para PR → main)  
 **Sitio de producción:** https://www.paisare.com/ — WordPress con tema Select 2.4.1. **NO TOCAR.**
 
 ---
@@ -16,9 +16,10 @@
 
 | Dato | Valor |
 |---|---|
-| Rama de documentación | `feat/fase-0-docs` (en PR, pendiente merge) |
+| Rama de documentación | `feat/fase-0-docs` (PR abierto → main, pendiente merge) |
+| Rama de código activa | `feat/lote-1a-config` (PR abierto → main, pendiente merge) |
 | Branch principal | `main` |
-| Siguiente rama | `feat/lote-1a-config` (crear después del merge) |
+| Siguiente rama | `feat/lote-1b-cleanup` (crear después de merge de 1A) |
 | Regla obligatoria | **Nunca commits directo a `main`. Siempre rama + PR.** |
 | Repo remoto | `https://github.com/reguer/paisare-redesign.git` |
 
@@ -27,7 +28,8 @@
 ## Último commit relevante
 
 - `c611c4e` — "Initial Paisare redesign" (2026-04-27) en `main`
-- Fase 0 está en `feat/fase-0-docs` — pendiente de merge vía PR
+- Fase 0 completada en `feat/fase-0-docs` — pendiente de merge vía PR
+- Lote 1A completado en `feat/lote-1a-config` — pendiente de merge vía PR
 
 ---
 
@@ -68,6 +70,7 @@
 ## Qué está en progreso
 
 - [ ] PR de `feat/fase-0-docs` → `main` — pendiente de revisión y merge
+- [ ] PR de `feat/lote-1a-config` → `main` — pendiente de revisión y merge
 
 ---
 
@@ -75,10 +78,9 @@
 
 | Lote/Fase | Bloqueado por |
 |---|---|
-| Lote 1A (centralizar WA, http→https) | **P1 — número real de WhatsApp** |
-| Lote 1B (Schema/OG, favicon) | **P5 — dirección, teléfono, horario validados** |
+| Lote 1B (Schema/OG, favicon) | P5 parcial: falta confirmar días del horario (¿L–V o incluye sábados?) |
 | Fase 0.5 (baseline WordPress) | **P11/P12 — acceso a Search Console y admin WP** |
-| Fase 2 (home mejorada) | Stats (P3), logos (P4) |
+| Fase 2 (home mejorada) | Stats (P3: ¿eliminar o reemplazar?), logos (P4: nuevos logos pendientes), contenido de Nosotros/Testimonios/FAQ por recibir |
 | Fase 3 (tienda MVP) | Catálogo de productos (P9) |
 | Fase 6 (checkout) | P6, P7, P8, P9, P13 — reglas comerciales completas |
 
@@ -96,19 +98,30 @@
 
 ---
 
-## Próximo lote recomendado: Lote 1A
+## Próximo lote recomendado: Lote 1B
 
-**Prerequisito:** Tener el número real de WhatsApp (P1).  
-**Rama:** `feat/lote-1a-config`  
+**Prerequisito:** Merge de Lote 1A. Confirmar días del horario (¿lunes a viernes o incluye sábados?).  
+**Rama:** `feat/lote-1b-cleanup`  
 **Alcance exacto:**
 
-1. Crear `src/js/config.js` con número WA, email y horario (como TODO hasta confirmar)
-2. Refactorizar todos los `wa.me/524420000000` del HTML para leer de `config.js`
-3. Cambiar todas las URLs de imágenes de `http://` a `https://`
-4. Actualizar `CHANGELOG.md`
-5. Abrir PR ligado a `[E1-S1.3]` y `[E11-S11.1]`
+1. Remover `#tweaks-panel` del HTML de producción
+2. Agregar favicon (placeholder o real si el cliente lo provee)
+3. Agregar OpenGraph básico con **solo** campos confirmados: nombre empresa, descripción, URL, imagen
+4. Agregar Schema.org `Organization` + `LocalBusiness` mínimo con campos confirmados únicamente
+5. Campos NO confirmados van como `<!-- TODO: validar -->` — NO inventar datos
+6. Actualizar `CHANGELOG.md`
+7. Abrir PR ligado a `[E3-S3.1]`
 
-**No tocar diseño ni layout. Solo configuración y limpieza técnica.**
+**Confirmados disponibles para Schema/OG:**  
+- Nombre: Paisare  
+- Ciudad: Querétaro, México  
+- Teléfono: +52 442 215 5474  
+- WhatsApp: +52 442 773 0857  
+- Email: contacto@paisare.com  
+- Dirección (solo Schema, no footer): Hacienda el Salitre 410, Jardines de la Hacienda, Querétaro, Qro., México  
+- Horario: 8:30–18:00 hrs (días pendientes)
+
+**No tocar diseño ni layout.**
 
 ---
 
@@ -153,10 +166,11 @@ Antes de cualquier cambio de código:
 
 ## Preguntas pendientes más urgentes
 
-1. **P1** — ¿Cuál es el número real de WhatsApp? (bloquea Lote 1A)
-2. **P2** — ¿El email `hola@paisare.com` está activo?
-3. **P11** — ¿Hay acceso a Search Console y GA4?
-4. **P12** — ¿Hay acceso al admin de WordPress?
-5. **P5** — Dirección, teléfono de oficina y horario verificados (bloquea Schema/OG)
+1. **P3** — ¿Eliminar sección `#stats` o reemplazar con métricas reales? (bloquea Fase 2)
+2. **P4** — Enviar nuevos logos de clientes para sección `#clientes`
+3. **P5 parcial** — ¿El horario aplica lunes a viernes únicamente o incluye sábados? (bloquea Schema en Lote 1B)
+4. **P11** — ¿Hay acceso a Search Console y GA4? (bloquea Fase 0.5)
+5. **P12** — ¿Hay acceso al admin de WordPress? (bloquea Fase 0.5)
+6. **Nosotros/Testimonios/FAQ** — Contenido real del cliente para estas secciones nuevas
 
 Ver lista completa: [`docs/PENDING.md`](docs/PENDING.md)

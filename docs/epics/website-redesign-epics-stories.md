@@ -104,6 +104,26 @@ Inspección → Documentación → Mapeo → Modularización → Mejora visual �
 **Archivos esperados:** `docs/home/store-section-plan.md`  
 **Criterios:** Sin precios falsos · Productos marcados pendientes si no hay datos reales
 
+### Story 5.4 — Sección Nosotros
+**Estado:** Pendiente (Fase 2) — solicitado por cliente 2026-04-27  
+**Contenido:** Historia del despacho · Foto grupal del equipo · Valores corporativos  
+**Criterios:** Texto real del cliente · Foto real del equipo · CTA a WhatsApp o formulario  
+**Implementación:** Página estática WP, sección en home (resumen) + página interior `/nosotros/`
+
+### Story 5.5 — Sección Testimonios
+**Estado:** Pendiente (Fase 2/4) — solicitado por cliente 2026-04-27  
+**Contenido:** Reseñas de clientes con foto (si autorizan), nombre, proyecto, calificación o texto  
+**Criterios:** Solo testimonios reales y autorizados · Foto opcional · CTA "Cotiza tu proyecto"  
+**CPT:** `testimonio` (definido en `docs/cms/custom-post-types.md`)  
+**Diseño:** Cards en slider o grid · Pendiente: cliente provea primeros testimonios reales
+
+### Story 5.6 — Sección FAQ
+**Estado:** Pendiente (Fase 2) — solicitado por cliente 2026-04-27  
+**Contenido:** Accordion con preguntas frecuentes sobre precios, tiempos, garantías, proceso  
+**Criterios:** Preguntas reales del cliente · Schema `FAQPage` para SEO · CTA "¿Tienes otra duda?"  
+**CPT:** `faq` (definido en `docs/cms/custom-post-types.md`)  
+**Pendiente:** Cliente provea lista de preguntas y respuestas reales
+
 ---
 
 ## Epic 6 — Servicios

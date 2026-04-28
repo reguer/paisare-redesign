@@ -8,12 +8,12 @@
 
 | ID | Pregunta | Bloquea | Estado |
 |---|---|---|---|
-| P1 | ¿Cuál es el número real de WhatsApp de Paisare? Formato: `52` + código de área + número sin espacios | Lote 1A, todos los botones WA | Abierto |
-| P2 | ¿El correo `hola@paisare.com` está activo, revisado y es el correcto para recibir solicitudes? | Lote 1A, formularios | Abierto |
-| P3 | ¿Las métricas del sitio son correctas?: 27,060 plantas sembradas · 226 proyectos realizados · 163 clientes satisfechos · 1,095 tazas de café | Fase 2 (sección stats) | Abierto |
-| P4 | ¿Los 7 logos de clientes en la sección "Clientes" tienen permiso de uso vigente para publicarse en el nuevo sitio? | Fase 2 (sección clientes) | Abierto |
-| P5 | ¿Cuál es la dirección exacta de la oficina, el teléfono oficial y el horario de atención? (para Schema.org y footer) | Lote 1B (Schema/OG), Footer | Abierto |
-| P6 | ¿Se vende con IVA incluido o desglosado? ¿Se emite CFDI/factura? ¿Cuáles son los métodos de pago aceptados? (tarjeta, SPEI, PayPal, efectivo) | Fase 6 (checkout) | Abierto |
+| P1 | ¿Cuál es el número real de WhatsApp de Paisare? | Lote 1A, todos los botones WA | **RESUELTO** 2026-04-27 |
+| P2 | ¿El correo correcto para recibir solicitudes? | Lote 1A, formularios | **RESUELTO** 2026-04-27 |
+| P3 | ¿Las métricas del sitio son correctas?: 27,060 plantas · 226 proyectos · 163 clientes | Fase 2 (sección stats) | **RESUELTO** 2026-04-27 — ver nota |
+| P4 | ¿Los 7 logos de clientes tienen permiso de uso vigente? | Fase 2 (sección clientes) | **RESUELTO** 2026-04-27 — ver nota |
+| P5 | ¿Dirección exacta, teléfono oficial y horario? | Lote 1B (Schema/OG), Footer | **PARCIALMENTE RESUELTO** 2026-04-27 |
+| P6 | ¿IVA, facturas y métodos de pago? | Fase 6 (checkout) | **RESUELTO** 2026-04-27 — ver notas |
 | P7 | ¿Hay envíos a domicilio o solo recolección en Querétaro? ¿Cuál es el costo de envío? | Fase 6 (checkout) | Abierto |
 | P8 | ¿Cuál es el radio o zonas de cobertura de envíos? | Fase 6 (checkout) | Abierto |
 | P9 | ¿Existe un catálogo de productos con nombres, descripciones, precios y SKUs? ¿Hay stock administrado? | Fase 3 (tienda catálogo) | Abierto |
@@ -42,4 +42,32 @@
 
 | ID | Pregunta | Respuesta | Fecha |
 |---|---|---|---|
-| — | (ninguno aún) | — | — |
+| P1 | Número de WhatsApp | `524427730857` / Display: `+52 442 773 0857` | 2026-04-27 |
+| P2 | Email de contacto | `contacto@paisare.com` (reemplazó a `hola@paisare.com`) | 2026-04-27 |
+
+### Notas de resolución
+
+**P3 — Métricas (sección #stats):**  
+Las métricas actuales (27,060 plantas, 226 proyectos, 163 clientes, 1,095 tazas de café) **no son datos reales** y están desactualizadas. El cliente propone **eliminar la sección `#stats` completa del diseño** si no hay datos verídicos que reemplazarla. Pendiente confirmar: ¿se elimina definitivamente o se reemplaza con nuevas métricas reales?
+
+**P4 — Logos de clientes:**  
+Los 7 logos actuales están desactualizados. Existen nuevos logos. Pendiente: el cliente debe proveer los nuevos archivos de logos para la sección `#clientes`.
+
+**P6 — Métodos de pago y facturación:**
+- **IVA:** incluido en el precio mostrado (no se desglosa al cliente)
+- **Facturas/CFDI:** disponibles si el cliente las solicita
+- **Métodos de pago aceptados:**
+  - Tarjeta de crédito/débito (precio incluye comisión de procesador)
+  - Crypto — USDT únicamente
+  - Transferencia bancaria (SPEI)
+  - PayPal
+- **Pendiente para Fase 6:** confirmar pasarela de pago para tarjeta (Conekta, Stripe, OpenPay u otro), datos de cuenta CLABE para SPEI, wallet USDT oficial
+
+---
+
+**P5 — Datos de contacto (parcial):**  
+- **Dirección exacta** (para Schema.org únicamente): Hacienda el Salitre 410, Jardines de la Hacienda, Querétaro, Querétaro, México  
+- **Footer / información pública**: Solo "Querétaro, México" (por seguridad — el cliente prefiere contacto digital o telefónico)  
+- **Teléfono de oficina**: `4422155474` / Display: `+52 442 215 5474`  
+- **Horario**: 8:30–18:00 hrs (días de la semana: pendiente confirmar si aplica L–V o incluye sábados)  
+- **Falta confirmar**: ¿El horario aplica de lunes a viernes únicamente o incluye sábados?

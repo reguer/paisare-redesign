@@ -86,10 +86,10 @@ La plantilla v1 es un archivo HTML monolítico con 13 secciones principales. Tod
 | Tipo | 4 contadores animados (JS IntersectionObserver) |
 | Datos actuales | 27,060 plantas · 226 proyectos · 163 clientes · 1,095 cafés |
 | Animación | Cuenta desde 0 hasta target en 2,000ms con `toLocaleString('es-MX')` |
-| Estado | Conservar funcionalidad — **validar datos con cliente antes de publicar** |
+| Estado | **⚠️ DECISIÓN PENDIENTE** — ver nota |
 | Riesgo | R09 — métricas no verificadas |
 
-**Nota:** "Tazas de café" es un dato de marca que puede mantenerse, pero no como métrica comercial principal. Pendiente validación (P3).
+**Nota (2026-04-27):** El cliente confirmó que las métricas actuales **no son datos reales** y están lejos de la actualidad. Opciones: (A) eliminar la sección completa, o (B) reemplazar con métricas actuales reales. Pendiente decisión del cliente. **No publicar la sección con datos actuales.**
 
 ---
 
@@ -144,8 +144,10 @@ La plantilla v1 es un archivo HTML monolítico con 13 secciones principales. Tod
 | Tipo | Grid de logos con filtro `grayscale(1)` |
 | Items | 7 logos con `alt` y `loading="lazy"` |
 | Imágenes | `<img src="...paisare.com/wp-content/...">` |
-| Estado | Conservar — **validar permisos de uso de cada logo** |
-| Riesgo | R10 (logos sin autorización verificada), R02 (imágenes remotas) |
+| Estado | **⚠️ PENDIENTE** — logos desactualizados, nuevos por recibir |
+| Riesgo | R10, R02 |
+
+**Nota (2026-04-27):** El cliente confirmó que los 7 logos actuales están desactualizados y existen nuevos logos vigentes. Pendiente: el cliente debe proveer los archivos de nuevos logos antes de publicar esta sección.
 
 ---
 
@@ -210,6 +212,48 @@ La plantilla v1 es un archivo HTML monolítico con 13 secciones principales. Tod
 
 ---
 
+## Secciones nuevas planificadas (no existen en v1 todavía)
+
+Las siguientes secciones fueron solicitadas por el cliente (2026-04-27) y deben incorporarse en Fase 2:
+
+### N1. `#nosotros` — Historia del equipo y valores
+
+| Campo | Valor |
+|---|---|
+| Estado | Planificado (Fase 2) |
+| Contenido propuesto | Historia breve del despacho, foto grupal del equipo, valores corporativos |
+| CPT | Página estática (no CPT) — contenido manejado desde la página de WP |
+| CTA | WhatsApp o formulario de contacto |
+| Story ligada | E5-S5.4 (nueva) |
+
+---
+
+### N2. `#testimonios` — Reseñas de clientes
+
+| Campo | Valor |
+|---|---|
+| Estado | Planificado (Fase 2/4) |
+| Contenido propuesto | Reseña con foto del cliente (si autoriza), nombre, proyecto realizado, estrellas o texto |
+| CPT | `testimonio` (ya definido en `docs/cms/custom-post-types.md`) |
+| Diseño | Cards con cita, foto, nombre y proyecto — slider o grid |
+| CTA | "Cotiza tu proyecto" → WhatsApp |
+| Story ligada | E5-S5.5 (nueva) |
+
+---
+
+### N3. `#faq` — Preguntas frecuentes
+
+| Campo | Valor |
+|---|---|
+| Estado | Planificado (Fase 2) |
+| Contenido propuesto | Accordion con preguntas sobre: precios, tiempos de entrega, garantías, proceso, tipos de cliente |
+| CPT | `faq` (ya definido en `docs/cms/custom-post-types.md`) |
+| Schema | `FAQPage` + `Question` + `Answer` para SEO |
+| CTA | "¿Tienes otra duda?" → WhatsApp |
+| Story ligada | E5-S5.6 (nueva) |
+
+---
+
 ## Breakpoints CSS
 
 | Punto | Ancho | Cambios |
@@ -231,11 +275,14 @@ La plantilla v1 es un archivo HTML monolítico con 13 secciones principales. Tod
 | mobile-nav | Conservar, ampliar, agregar sticky bar |
 | hero | Conservar slider, mejorar copy, validar imágenes |
 | servicios | Ampliar a 6 cards |
-| stats | Conservar, validar datos |
+| stats | ⚠️ Decisión pendiente: eliminar o reemplazar con datos reales |
 | portafolio | Conservar, ampliar, mejorar cards |
 | proceso | Dividir en 2 flujos |
 | articulos | Conservar, conectar a WP real |
-| clientes | Conservar, validar permisos |
+| clientes | ⚠️ Logos desactualizados — pendiente nuevos logos del cliente |
+| nosotros | Nuevo — planificado para Fase 2 |
+| testimonios | Nuevo — planificado para Fase 2/4 |
+| faq | Nuevo — planificado para Fase 2 |
 | contacto | Ampliar a 3 formularios, conectar backend |
 | footer | Conservar, actualizar datos |
 | float-wa | Conservar, centralizar número |
