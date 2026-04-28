@@ -1,13 +1,13 @@
 # RETOMAR — Handoff rápido del proyecto Paisare Redesign
-**Última actualización:** 2026-04-27 (Lote 1A completado)  
+**Última actualización:** 2026-04-27 (Lote 1B completado — pendiente PR)  
 **Para usar:** Leer este archivo al inicio de cualquier nueva conversación antes de hacer cualquier cambio.
 
 ---
 
 ## Estado actual del proyecto
 
-**Fase activa:** Lote 1A completado. Pendiente: merge de `feat/fase-0-docs` y `feat/lote-1a-config` vía PR.  
-**Rama activa actual:** `feat/lote-1a-config` (lista para PR → main)  
+**Fase activa:** Lote 1B completado. Pendiente: PR de `feat/lote-1b-cleanup` → main.  
+**Rama activa actual:** `feat/lote-1b-cleanup` (lista para PR → main)  
 **Sitio de producción:** https://www.paisare.com/ — WordPress con tema Select 2.4.1. **NO TOCAR.**
 
 ---
@@ -16,10 +16,11 @@
 
 | Dato | Valor |
 |---|---|
-| Rama de documentación | `feat/fase-0-docs` (PR abierto → main, pendiente merge) |
-| Rama de código activa | `feat/lote-1a-config` (PR abierto → main, pendiente merge) |
+| Rama de documentación | `feat/fase-0-docs` (mergeada en main — PR #1) |
+| Rama lote 1A | `feat/lote-1a-config` (mergeada en main — PR #2) |
 | Branch principal | `main` |
-| Siguiente rama | `feat/lote-1b-cleanup` (crear después de merge de 1A) |
+| Rama activa | `feat/lote-1b-cleanup` (lista para PR → main) |
+| Siguiente rama | `feat/lote-2-home` (crear después de merge de 1B) |
 | Regla obligatoria | **Nunca commits directo a `main`. Siempre rama + PR.** |
 | Repo remoto | `https://github.com/reguer/paisare-redesign.git` |
 
@@ -64,13 +65,14 @@
 - [x] 14 preguntas bloqueantes documentadas (`docs/PENDING.md`)
 - [x] CHANGELOG actualizado
 - [x] `EPICS_AND_STORIES.md` raíz convertido a índice/resumen
+- [x] Lote 1A: `src/js/config.js` centraliza WA, email, teléfono, horario
+- [x] Lote 1B: `#tweaks-panel` eliminado, favicon SVG placeholder, OpenGraph y Schema.org mínimos
 
 ---
 
 ## Qué está en progreso
 
-- [ ] PR de `feat/fase-0-docs` → `main` — pendiente de revisión y merge
-- [ ] PR de `feat/lote-1a-config` → `main` — pendiente de revisión y merge
+- [ ] PR de `feat/lote-1b-cleanup` → `main` — pendiente de abrir y mergear
 
 ---
 
@@ -78,7 +80,7 @@
 
 | Lote/Fase | Bloqueado por |
 |---|---|
-| Lote 1B (Schema/OG, favicon) | P5 parcial: falta confirmar días del horario (¿L–V o incluye sábados?) |
+| Fase 2 (home mejorada) | Contenido real: Nosotros, Testimonios, FAQ; logos de clientes (P4) |
 | Fase 0.5 (baseline WordPress) | **P11/P12 — acceso a Search Console y admin WP** |
 | Fase 2 (home mejorada) | Stats (P3: ¿eliminar o reemplazar?), logos (P4: nuevos logos pendientes), contenido de Nosotros/Testimonios/FAQ por recibir |
 | Fase 3 (tienda MVP) | Catálogo de productos (P9) |
@@ -98,30 +100,26 @@
 
 ---
 
-## Próximo lote recomendado: Lote 1B
+## Próximo lote recomendado: Lote 2 — Home mejorada
 
-**Prerequisito:** Merge de Lote 1A. Confirmar días del horario (¿lunes a viernes o incluye sábados?).  
-**Rama:** `feat/lote-1b-cleanup`  
-**Alcance exacto:**
+**Prerequisito:** Merge de Lote 1B vía PR.  
+**Rama:** `feat/lote-2-home` (crear desde `main` tras merge)  
+**Alcance exacto (cuando el cliente entregue el contenido):**
 
-1. Remover `#tweaks-panel` del HTML de producción
-2. Agregar favicon (placeholder o real si el cliente lo provee)
-3. Agregar OpenGraph básico con **solo** campos confirmados: nombre empresa, descripción, URL, imagen
-4. Agregar Schema.org `Organization` + `LocalBusiness` mínimo con campos confirmados únicamente
-5. Campos NO confirmados van como `<!-- TODO: validar -->` — NO inventar datos
-6. Actualizar `CHANGELOG.md`
-7. Abrir PR ligado a `[E3-S3.1]`
+1. Reemplazar sección `#clientes` con logos reales (bloqueado por P4)
+2. Agregar sección Nosotros con contenido real del cliente
+3. Agregar sección Testimonios con contenido real
+4. Agregar sección FAQ con preguntas reales
+5. Agregar `og:image` una vez aprobada la fotografía de portada
+6. Actualizar `CHANGELOG.md` y abrir PR ligado a `[E2]`
 
-**Confirmados disponibles para Schema/OG:**  
-- Nombre: Paisare  
-- Ciudad: Querétaro, México  
-- Teléfono: +52 442 215 5474  
-- WhatsApp: +52 442 773 0857  
-- Email: contacto@paisare.com  
-- Dirección (solo Schema, no footer): Hacienda el Salitre 410, Jardines de la Hacienda, Querétaro, Qro., México  
-- Horario: 8:30–18:00 hrs (días pendientes)
+**Pendientes del cliente que desbloquean Lote 2:**  
+- Logos actualizados de clientes (P4)  
+- Texto real de Nosotros / misión / historia  
+- Testimonios reales (nombre + empresa + texto)  
+- Fotografía de portada aprobada para OG
 
-**No tocar diseño ni layout.**
+**No tocar diseño ni layout hasta tener el contenido.**
 
 ---
 

@@ -2,6 +2,99 @@
 
 Todos los cambios notables de este proyecto se documentan aqui.
 
+## 2026-04-27 — Lote 1B (ampliado): Logo real, Nosotros, Testimonios y redes sociales
+
+**Rama:** `feat/lote-1b-cleanup`  
+**Epic/Story:** E2-S2.1 (Nosotros), E3-S3.1 (SEO/Schema), E5-S5.1 (brand assets)
+
+### Creado
+
+- `src/img/favicon.svg` — recreación SVG del ícono geométrico oficial de Paisare (hoja con patrón tejido, cuadrantes NW/SE en mint, NE/SW en forest, diamante central, alas)
+- `src/img/logo-icon.svg` — mismo ícono como asset independiente para nav/footer
+
+### Modificado en `Paisare Redesign.html`
+
+**Brand / Logo:**
+- Nav: logo texto reemplazado por ícono SVG + "PAISARE" con letter-spacing de marca
+- Footer: mismo tratamiento — ícono + wordmark PAISA·RE con "RE" en mint
+- CSS `.nav-logo` y `.footer-brand-name` actualizados para layout flex con imagen
+
+**SEO / Head:**
+- `og:image` actualizado: `SLIDER-ATTENUATA2-1.jpg` (Agave attenuata, foto real del portafolio WP)
+- `og:image:alt` agregado
+- Schema.org `sameAs` agregado con Facebook, Instagram, LinkedIn, Pinterest
+
+**Sección `#nosotros` (nueva — entre #servicios y #portafolio):**
+- Quiénes somos (texto confirmado por cliente)
+- Misión: "Regresarle al hombre el derecho a la convivencia con el entorno natural..."
+- Visión: "Ser referencia de arquitectura y paisajismo en Latinoamérica..."
+- Datos clave: Fundación 2014 · Querétaro México · 360° servicio
+
+**Sección `#testimonios` (nueva — entre #portafolio y #proceso):**
+- 3 reseñas reales de Homify (Manola, María Fernanda Vergara, Ricardo Jiménez)
+- Links a Google Maps, Facebook e Instagram para más reseñas
+- Estructura preparada para agregar reseñas de Google/Facebook cuando se puedan extraer
+
+**Nav y Mobile nav:**
+- Nav desktop: añadido `#nosotros` · "Proceso" (antes "Cómo contratarnos")
+- Mobile nav: añadidos `#nosotros` y `#testimonios`
+
+**Footer social icons:**
+- Agregados: LinkedIn (`/company/89912704/`) y Google Maps (con pin para dejar reseña)
+- Mantenidos: Facebook, Instagram, Pinterest
+
+**Footer links:**
+- "Nosotros" apunta a `#nosotros` en vez del sitio WordPress
+
+**Hero sub:**
+- Removida referencia a métricas no reales (ya sin `#stats`)
+
+---
+
+## 2026-04-27 — Lote 1B (completo): Cleanup, favicon y metadatos SEO
+
+**Rama:** `feat/lote-1b-cleanup`  
+**Epic/Story:** E3-S3.1 (SEO técnico mínimo), E5-S5.0 (cleanup)
+
+### Creado
+
+- `src/img/favicon.svg` — favicon SVG placeholder (fondo forest, "P" en mint) hasta que el cliente entregue el definitivo
+
+### Modificado en `Paisare Redesign.html`
+
+- **`<meta name="description">`** — eliminada la referencia a métricas no reales ("+226 proyectos, 163 clientes")
+- **Favicon** — `<link rel="icon" href="src/img/favicon.svg" type="image/svg+xml">` agregado al `<head>`
+- **OpenGraph** — agregados: `og:type`, `og:locale`, `og:site_name`, `og:title`, `og:description`, `og:url`; `og:image` marcado como TODO (pendiente foto de portada aprobada)
+- **Schema.org JSON-LD** — `LocalBusiness + LandscapeArchitect` con todos los campos confirmados: nombre, URL, teléfono, email, dirección completa, horario L–V 8:30–18:00 y sábados con cita previa
+- **`#tweaks-panel`** — eliminado completamente: bloque CSS (14 líneas), bloque HTML (31 líneas), bloque JS (38 líneas incluyendo `updateWaLinks` y sus 4 listeners)
+
+### Datos usados en Schema/OG (confirmados por cliente)
+
+- Nombre: Paisare
+- URL: https://www.paisare.com/
+- Teléfono oficina: +52 442 215 5474
+- WhatsApp: +52 442 773 0857
+- Email: contacto@paisare.com
+- Dirección: Hacienda el Salitre 410, Jardines de la Hacienda, Querétaro, Qro., México
+- Horario: L–V 8:30–18:00 · Sábados con cita previa
+
+---
+
+## 2026-04-27 — Lote 1B (parcial): Eliminar sección #stats
+
+**Rama:** `feat/lote-1b-cleanup`  
+**Epic/Story:** E5-S5.0 (cleanup previo a Fase 2)
+
+### Eliminado de `Paisare Redesign.html`
+
+- Sección HTML `#stats` (contadores animados con métricas no reales)
+- Bloque CSS `/* STATS */` (10 líneas: `#stats`, `.stats-inner`, `.stat-n`, `.stat-plus`, `.stat-lbl`)
+- Bloque JS `// COUNTER ANIMATION` (20 líneas: `IntersectionObserver` + `setInterval` de contadores)
+
+**Motivo:** Las métricas (27,060 plantas · 226 proyectos · 163 clientes · 1,095 cafés) no son datos reales. El cliente decidió eliminar la sección. Se puede agregar en Fase 2 una sección de diferenciadores o trust bar con contenido real.
+
+---
+
 ## 2026-04-27 — Lote 1A: Centralizar configuración y corregir protocolos
 
 **Rama:** `feat/lote-1a-config`  
