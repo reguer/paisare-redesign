@@ -7,7 +7,7 @@
 <meta name="description" content="Diseño de jardines, paisajismo, arquitectura exterior y mantenimiento de áreas verdes en Querétaro, México.">
 
 <!-- Favicon -->
-<link rel="icon" href="src/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="src/img/favicon.png" type="image/png">
 
 <!-- OpenGraph -->
 <meta property="og:type" content="website">
@@ -356,10 +356,8 @@ body { font-family: var(--sans); font-weight: 300; color: var(--ink); background
 /* FOOTER */
 footer { background: oklch(12% 0.04 148); padding: 4rem 7vw 2rem; color: rgba(255,255,255,0.45); font-size: 0.82rem; }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
-.footer-brand-name { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 0.7rem; }
-.footer-brand-name > span { font-family: var(--sans); font-size: 0.9rem; letter-spacing: 0.32em; text-transform: uppercase; color: #fff; font-weight: 400; }
-.footer-brand-name > span em { color: var(--mint); font-style: normal; }
-.footer-logo-icon { height: 38px; width: auto; flex-shrink: 0; }
+.footer-brand-name { display: block; margin-bottom: 1rem; }
+.footer-logo-full { width: 170px; height: auto; display: block; }
 .footer-tagline { line-height: 1.7; max-width: 270px; margin-bottom: 1.5rem; }
 .footer-social { display: flex; gap: 0.6rem; }
 .footer-social a { width: 34px; height: 34px; background: oklch(18% 0.04 148); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
@@ -462,7 +460,7 @@ footer { background: oklch(12% 0.04 148); padding: 4rem 7vw 2rem; color: rgba(25
 <!-- ═══ NAV ═══ -->
 <nav id="nav" aria-label="Navegación principal">
   <a href="#hero" class="nav-logo" aria-label="Paisare — Inicio">
-    <img src="src/img/logo-icon.svg" alt="" class="nav-logo-icon" width="29" height="34" loading="eager">
+    <img src="src/img/favicon.svg" alt="" class="nav-logo-icon" width="29" height="34" loading="eager">
     PAISA<span>RE</span>
   </a>
   <ul class="nav-links">
@@ -939,8 +937,7 @@ footer { background: oklch(12% 0.04 148); padding: 4rem 7vw 2rem; color: rgba(25
   <div class="footer-grid">
     <div>
       <div class="footer-brand-name">
-        <img src="src/img/logo-icon.svg" alt="Paisare" class="footer-logo-icon" width="32" height="37" loading="lazy">
-        <span>PAISA<em>RE</em></span>
+        <img src="src/img/logo-white.svg" alt="Paisare — Paisajismo y Arquitectura" class="footer-logo-full" loading="lazy">
       </div>
       <p class="footer-tagline">Paisajismo y Arquitectura Experimental. Recuperando el contacto con la naturaleza en Querétaro y toda la región centro de México.</p>
       <div class="footer-social">
