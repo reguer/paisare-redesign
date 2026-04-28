@@ -26,7 +26,7 @@ const PAISARE_CONFIG = {
     phone:    '4422155474',
     phoneDisplay: '+52 442 215 5474',
     address:  'Querétaro, México',
-    hours:    'Lunes a viernes 8:30–18:00 hrs',  // TODO P5: confirmar si incluye sábados
+    hours:    'Lunes a viernes 8:30–18:00 hrs · Sábados con cita previa',
   }
 };
 
