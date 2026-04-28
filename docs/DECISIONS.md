@@ -1,83 +1,109 @@
 # Decisiones del proyecto
 **Agente:** Change Manager  
-**Actualizar:** cada vez que se toma una decisión importante
+**Actualizar:** cada vez que se toma una decisión importante  
+**Última actualización:** 2026-04-28
 
 ---
 
-## D01 — Stack final: WordPress tradicional + WooCommerce + tema propio
-**Fecha:** 2026-04-27  
-**Decisión:** El stack final será WordPress tradicional moderno + WooCommerce + tema PHP propio y ligero, sin page builder.  
-**Por qué:** Preserva todo el contenido existente sin migración de datos, WooCommerce es el estándar para tiendas WordPress, y la plantilla HTML se convierte directamente en templates PHP. Headless queda como alternativa futura documentada.  
-**Alternativa descartada:** Headless (Next.js/Astro + WordPress API) — mayor complejidad sin beneficio proporcional en esta etapa.
-
----
-
-## D02 — Archivo canónico de Epics en docs/epics/
-**Fecha:** 2026-04-27  
-**Decisión:** El archivo canónico de Epics & Stories es `docs/epics/website-redesign-epics-stories.md`. El archivo raíz `EPICS_AND_STORIES.md` es solo un índice/resumen con link al canónico.  
-**Por qué:** Mantener una sola fuente de verdad. El archivo raíz facilita encontrar el doc rápidamente, pero el contenido completo vive en `docs/`.
-
----
-
-## D03 — Tweaks panel removido de producción
-**Fecha:** 2026-04-27  
-**Decisión:** El `#tweaks-panel` se remueve del HTML de producción en Lote 1B. Se documenta en `docs/frontend/tweaks-panel-reference.md`.  
-**Por qué:** El panel es una herramienta de Claude Design que no tiene función en producción. Su código de postMessage es overhead innecesario.
-
----
-
-## D04 — Schema/OG solo con datos validados
-**Fecha:** 2026-04-27  
-**Decisión:** No agregar OpenGraph ni Schema.org con campos no validados. Los campos pendientes de confirmar con el cliente van como comentarios `<!-- TODO: validar P5 -->`.  
-**Por qué:** Publicar Schema con datos incorrectos (teléfono, dirección, horario) es peor que no tenerlo — puede confundir a Google y a los clientes.
-
----
-
-## D05 — Tienda: catálogo cotizable antes de checkout
-**Fecha:** 2026-04-27  
-**Decisión:** La primera iteración de la tienda es un catálogo visual con productos cotizables (sin checkout). El checkout real se activa solo cuando estén definidos precios, inventario, IVA/CFDI, métodos de pago, envíos, cobertura, políticas y términos.  
-**Por qué:** Evitar riesgos operativos de lanzar una tienda incompleta. El catálogo cotizable genera leads sin comprometer la experiencia.
-
----
-
-## D06 — No tocar main directamente
-**Fecha:** 2026-04-27  
-**Decisión:** Todo desarrollo en ramas feature. No commits directos a main. PR obligatorio para merge.  
-**Por qué:** Proteger la estabilidad del código principal y mantener trazabilidad de cambios.
-
----
-
-## D07 — Inventario de assets antes de descargar imágenes
-**Fecha:** 2026-04-27  
-**Decisión:** Antes de descargar cualquier imagen del servidor de producción al repo, se crea el inventario en `docs/audit/image-asset-inventory.md` con URL original, nombre local, uso, alt text, tamaño y estado de optimización. La descarga ocurre solo después de aprobar el inventario.  
-**Por qué:** Evitar descargar imágenes incorrectas, mantener trazabilidad y asegurar optimización (WebP, lazy load) desde el inicio.
-
----
-
-## D08 — Formulario actual no es productivo
-**Fecha:** 2026-04-27  
-**Decisión:** El formulario de contacto actual (`#contact-form`) es solo visual y no debe usarse en producción. Para producción se requiere: endpoint real, validación server-side, antispam real, rate limiting y confirmación por email.  
-**Por qué:** El formulario actual simula el envío sin enviarlo realmente. Publicarlo así generaría expectativas falsas en el cliente y no capturaría ningún lead real.
-
----
-
-## D09 — Sección #stats eliminada
+## D01 — Stack final: Astro + Sanity + Cloudflare *(reemplaza decisión anterior de WordPress)*
 **Fecha:** 2026-04-28  
-**Decisión:** La sección de métricas (`#stats`) se elimina del prototipo y no se incluirá en el sitio final con datos falsos.  
-**Por qué:** Las métricas publicadas no eran datos reales ni actualizados. El cliente confirmó que si la sección no aporta valor veraz, es mejor eliminarla que publicar números inventados. Fue eliminada en Lote 1B.  
-**Alternativa descartada:** Reemplazar con barra de confianza o diferenciadores — se revisará en Fase 2 si el cliente provee datos reales o texto de valor.
+**Decisión:** El stack de producción es **Astro** (framework) + **Sanity** (CMS headless) + **Cloudflare Pages/Workers/Access** (hosting, SSR, auth). El plan anterior de WordPress + WooCommerce + tema PHP propio queda descartado para el sitio nuevo.  
+**Por qué:**
+- Astro genera HTML estático — Core Web Vitals excelentes sin esfuerzo, mejor SEO orgánico.
+- Sanity permite a editores no técnicos (cliente, community manager) publicar blog y portafolio desde un Studio visual, sin tocar código.
+- Cloudflare Pages es gratis indefinidamente para el volumen de Paisare. CDN con nodos en LATAM → más rápido para usuarios en México que hosting compartido en EUA.
+- El sitio de WordPress actual **permanece vivo** hasta que el nuevo esté aprobado en producción (D04).
+- No se instalará ni configurará WordPress nuevo — la migración es de contenido (artículos, portafolio), no de plataforma.  
+**Alternativa descartada:** WordPress + WooCommerce + tema PHP propio — mayor superficie de ataque, mantenimiento de plugins, performance limitada sin capa de caché adicional.
 
 ---
 
-## D10 — Performance/accesibilidad: diferir a Fase 2 post-estructura
+## D02 — CMS: Sanity (free tier) es suficiente para la escala de Paisare
 **Fecha:** 2026-04-28  
-**Decisión:** Las mejoras de performance (lazy loading, minificación, WebP) y accesibilidad (WCAG, aria-labels) se ejecutan después de que la estructura general del sitio, imágenes y contenido estén definidos.  
-**Por qué:** Optimizar antes de tener la estructura final es trabajo que se puede perder o rehacer. El orden correcto es: estructura → contenido → imágenes → performance.
+**Decisión:** Se usa Sanity en su free tier indefinidamente a menos que se superen los límites (2 editores, 10 GB CDN, 500 K API requests/mes).  
+**Por qué:** El volumen de contenido de Paisare (blog mensual, proyectos del portafolio, productos de tienda) no alcanzará esos límites en años. Si se supera, el plan Growth de Sanity cuesta $15/mes — techo realista de costo CMS.
 
 ---
 
-## D11 — Stack: revisar alternativa Astro + Sanity CMS
+## D03 — Hosting: Cloudflare Pages + Workers (con evaluación futura de Umbrel Pro)
 **Fecha:** 2026-04-28  
-**Decisión:** Apertura formal para evaluar Astro (frontend estático) + Sanity (headless CMS) como alternativa a WordPress + WooCommerce. La decisión final se toma antes de iniciar Fase 5 (CMS/WordPress staging).  
-**Por qué:** Ingeniero externo sugirió el stack. Tiene ventajas reales en performance y seguridad para la parte institucional. El mayor bloqueante es reemplazar WooCommerce para la tienda — requiere análisis de alternativas (Shopify, Snipcart, solución custom).  
-**Ver análisis completo:** Conversación 2026-04-28 — pendiente de documentar en `docs/DECISIONS.md` con análisis detallado.
+**Decisión:** El hosting principal es Cloudflare Pages (estático) + Cloudflare Workers (SSR para auth y pagos). Esto reemplaza el servidor compartido actual donde corre el WordPress de producción.  
+**Pendiente — D03b:** Evaluar Umbrel Pro como hosting autoalojado en una fase futura (Fase 9). Umbrel Pro es una opción de servidor propio que potencialmente reduce costos a largo plazo, pero requiere evaluar uptime, ancho de banda, seguridad y soporte antes de usarlo en producción. Si se adopta, Cloudflare puede seguir siendo la capa CDN/proxy al frente, reduciendo el riesgo de autoalojamiento.  
+**Acción:** No migrar al servidor compartido actual. Abrir cuenta en Cloudflare y desplegar desde GitHub.
+
+---
+
+## D04 — Migración zero-downtime: WordPress vive hasta que el nuevo sitio esté aprobado
+**Fecha:** 2026-04-28  
+**Decisión:** `paisare.com` permanece apuntando al WordPress actual durante todo el desarrollo del nuevo sitio. El nuevo sitio se construye y prueba en un subdominio (`nuevo.paisare.com` o en GitHub Pages). El flip de DNS ocurre solo después de aprobación explícita del cliente.  
+**Por qué:** Nunca se mata un sitio en producción sin un reemplazo funcional y aprobado. El WordPress tiene tráfico orgánico, artículos indexados y backlinks. Perder eso sería un daño SEO irreversible.  
+**Proceso:** Ver Epic 15 — Migración zero-downtime.
+
+---
+
+## D05 — Tienda: Mercado Pago (sin costo fijo, por transacción)
+**Fecha:** 2026-04-28  
+**Decisión:** La tienda usa **Mercado Pago Checkout** como procesador de pagos. Sin costo mensual fijo. Se paga ~3.5% + IVA por transacción ejecutada. Acepta tarjeta (crédito/débito), SPEI, OXXO y Mercado Crédito.  
+**Por qué:** El volumen de ventas será bajo. Pagar $30-80/mes por Shopify cuando hay meses sin ventas no tiene sentido. Mercado Pago domina México en familiaridad de usuario, especialmente por SPEI y OXXO.  
+**Proceso de pago:** Cloudflare Worker crea la sesión de Mercado Pago → usuario paga en página alojada por Mercado Pago → regresa a `paisare.com/tienda/confirmacion`.  
+**Alternativa si en el futuro necesitan más funcionalidad:** Snipcart ($20/mes) — se puede agregar sin cambiar la arquitectura.
+
+---
+
+## D06 — Páginas privadas de cliente: Cloudflare Access (email magic link)
+**Fecha:** 2026-04-28  
+**Decisión:** Las páginas `/cliente/[slug]` están protegidas por **Cloudflare Access** con autenticación por email (one-time code). El cliente recibe un correo, introduce el código, y ve su página de proyecto.  
+**Por qué:** Zero Trust free tier de Cloudflare es gratuito para hasta 50 usuarios activos. No requiere código de autenticación propio, no hay contraseñas que gestionar, y la seguridad es robusta (nivel empresarial).  
+**Contenido de la página de cliente:** fotos de avance, cronograma, documentos, notas del equipo. Todo gestionado desde Sanity Studio por el equipo de Paisare.
+
+---
+
+## D07 — Formularios de contacto: Web3Forms o Cloudflare Email Routing
+**Fecha:** 2026-04-28  
+**Decisión:** Sin backend propio para formularios. Se usa Web3Forms (free tier: 250 envíos/mes) o Cloudflare Email Routing (Worker que procesa el formulario y manda correo). Ambos son gratuitos para el volumen de Paisare.  
+**Por qué:** Un servidor Node/PHP solo para procesar formularios es overhead innecesario. Estas soluciones son robustas, gratuitas y no añaden complejidad de infraestructura.
+
+---
+
+## D08 — No commits directos a `main`. Siempre rama + PR.
+**Fecha:** 2026-04-27  
+**Decisión:** Todo desarrollo en ramas feature/docs/fix. PR obligatorio para merge a main.  
+**Por qué:** Protege la estabilidad y mantiene trazabilidad de cambios.
+
+---
+
+## D09 — Sección `#stats` eliminada definitivamente
+**Fecha:** 2026-04-28  
+**Decisión:** La sección de métricas no se incluye en el nuevo sitio con datos no verificados. Si en el futuro el cliente provee métricas reales y verificables, se puede agregar como una sección de "confianza" con diferenciadores.
+
+---
+
+## D10 — Performance y accesibilidad: después de estructura y contenido
+**Fecha:** 2026-04-28  
+**Decisión:** Las optimizaciones de performance (WebP, lazy loading, minificación) y accesibilidad (WCAG AA) se ejecutan en Fase 7, después de que la estructura, imágenes y contenido estén definidos.  
+**Por qué:** Optimizar antes de tener la estructura final genera trabajo que se puede deshacer.
+
+---
+
+## D11 — Inventario de assets antes de descargar imágenes
+**Fecha:** 2026-04-27  
+**Decisión:** Antes de descargar cualquier imagen de `paisare.com` al repo, se crea el inventario en `docs/audit/image-asset-inventory.md` con URL original, nombre local, alt text, uso y tamaño.
+
+---
+
+## D12 — Formulario de contacto actual no es productivo
+**Fecha:** 2026-04-27  
+**Decisión:** El formulario del prototipo HTML simula el envío sin enviarlo. No publicar en producción sin integración real (Web3Forms o CF Worker).
+
+---
+
+## D13 — Prototipo HTML es referencia de diseño, no el producto final
+**Fecha:** 2026-04-28  
+**Decisión:** El archivo `Paisare Redesign.html` y el `index.html` son la referencia visual y de contenido para construir los componentes Astro. No son el sitio de producción. Se conservan en el repo como documentación.
+
+---
+
+## D14 — Analytics: Cloudflare Web Analytics (sin cookies) preferido sobre GA4
+**Fecha:** 2026-04-28  
+**Decisión:** Usar Cloudflare Web Analytics como primera opción — es gratuito, sin cookies, compatible con LGPD/privacidad. Si el cliente necesita eventos granulares o embudos de conversión, agregar GA4 en paralelo.  
+**Por qué:** Cloudflare Web Analytics está integrado nativamente en el hosting, no requiere script externo para métricas básicas.

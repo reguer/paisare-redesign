@@ -2,6 +2,33 @@
 
 Todos los cambios notables de este proyecto se documentan aqui.
 
+## 2026-04-28 — Decisión de stack: Astro + Sanity + Cloudflare + Mercado Pago (reescritura completa de docs)
+
+**Rama:** `feat/lote-2-home`  
+**Tipo:** Decisión de arquitectura + reescritura de documentación de planificación
+
+### Decisión
+Stack de producción confirmado: **Astro + Sanity + Cloudflare Pages/Workers/Access + Mercado Pago**.
+WordPress descartado como plataforma destino. El sitio WordPress actual permanece vivo (zero-downtime) hasta Fase 8.
+
+### Documentos reescritos desde cero
+- `docs/DECISIONS.md` — 14 decisiones técnicas del proyecto, incluyendo:
+  - D01: Stack Astro + Sanity + Cloudflare (supersede WordPress + WooCommerce)
+  - D03: Cloudflare Pages como hosting + evaluación futura de Umbrel Pro (D03b)
+  - D04: Zero-downtime migration — WordPress permanece vivo hasta aprobación
+  - D05: Mercado Pago para la tienda (sin costo fijo, ~3.5% por transacción)
+  - D06: Cloudflare Access para páginas privadas de cliente (magic link por email)
+- `docs/epics/website-redesign-epics-stories.md` — 13 Epics reescritos para el stack real, 9 fases de implementación
+- `docs/PENDING.md` — Pendientes reorganizados por categoría (infraestructura, contenido, tienda, cliente, analytics, futuro)
+- `RETOMAR.md` — Reescrito con estado actual, mapa de ramas, bloqueantes activos y **prompt de sesión** para reanudar en cualquier conversación futura
+
+### Qué NO cambió
+- El prototipo HTML (`Paisare Redesign.html`) — sigue siendo la referencia visual para los componentes Astro
+- Los assets en `src/img/` — se reutilizarán en Astro
+- Las secciones de diseño en `docs/design/`, `docs/strategy/`, `docs/qa/` — siguen siendo válidas
+
+---
+
 ## 2026-04-28 — Lote 2 inicial: FAQ, portafolio interactivo, carpetas de assets, decisiones de arquitectura
 
 **Rama:** `feat/lote-2-home`  
