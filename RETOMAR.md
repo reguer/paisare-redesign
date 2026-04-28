@@ -1,183 +1,159 @@
-# RETOMAR — Handoff rápido del proyecto Paisare Redesign
-**Última actualización:** 2026-04-28 (Lote 1B mergeado en main — PR #3 cerrado)  
-**Para usar:** Leer este archivo al inicio de cualquier nueva conversación antes de hacer cualquier cambio.
+# RETOMAR — Paisare Web Redesign
+**Última actualización:** 2026-04-28  
+**Para usar:** Lee este archivo completo al inicio de cualquier sesión nueva antes de hacer cualquier cambio.
 
 ---
 
-## Estado actual del proyecto
+## Stack confirmado
 
-**Fase activa:** Lote 1B mergeado. Próximo: Lote 2 (`feat/lote-2-*`) desde `main`.  
-**Rama activa actual:** `main` — lista para abrir nueva rama de Lote 2  
-**Preview pública (GitHub Pages):** https://reguer.github.io/paisare-redesign/ (branch: feat/lote-1b-cleanup)  
-**Sitio de producción:** https://www.paisare.com/ — WordPress con tema Select 2.4.1. **NO TOCAR.**
-
----
-
-## Rama activa y git
-
-| Dato | Valor |
+| Capa | Tecnología |
 |---|---|
-| Rama de documentación | `feat/fase-0-docs` (mergeada en main — PR #1) |
-| Rama lote 1A | `feat/lote-1a-config` (mergeada en main — PR #2) |
-| Rama lote 1B | `feat/lote-1b-cleanup` (mergeada en main — PR #3) |
-| Branch principal | `main` |
-| Siguiente rama | `feat/lote-2-*` (crear desde `main`) |
-| Regla obligatoria | **Nunca commits directo a `main`. Siempre rama + PR.** |
-| Repo remoto | `https://github.com/reguer/paisare-redesign.git` |
+| Framework | **Astro** (SSG + SSR islands) |
+| CMS | **Sanity** (free tier · studio en `studio.paisare.com`) |
+| Hosting + CDN | **Cloudflare Pages** |
+| SSR + pagos | **Cloudflare Workers** |
+| Auth cliente | **Cloudflare Access** (magic link por email, gratis ≤ 50 users) |
+| Pagos tienda | **Mercado Pago** (~3.5% por transacción, sin mensualidad) |
+| Formularios | **Web3Forms** o **CF Email Routing** |
+| Analytics | **Cloudflare Web Analytics** (+ GA4 opcional) |
+| Repo | `https://github.com/reguer/paisare-redesign` |
+| Dominio | `paisare.com` — **NO TOCAR** hasta Fase 8 (DNS flip) |
+| Hosting futuro | Umbrel Pro — evaluar en Fase 9 post-lanzamiento |
 
 ---
 
-## Último commit relevante
+## Estado actual del proyecto (2026-04-28)
 
-- `6ac920b` — "Lote 1B completo: cleanup, SEO, brand assets, Nosotros, Testimonios" (2026-04-28) en `main`
-- PR #3 mergeado — rama `feat/lote-1b-cleanup` ya en main
+### Lo que está terminado
+- [x] Fase 0 — Auditoría completa + toda la documentación base en `docs/`
+- [x] Fase 1 — Prototipo HTML completo (`Paisare Redesign.html`):
+  - Config centralizada (WA, email, tel) en `src/js/config.js`
+  - Favicon real (SVG + PNG) + Logo real en nav y footer
+  - Schema.org LocalBusiness + FAQPage + OpenGraph con datos reales
+  - Sección `#nosotros` (misión, visión, quiénes somos)
+  - Sección `#testimonios` (3 reseñas reales de Homify)
+  - Sección `#faq` (10 preguntas autogeneradas — pendiente revisión del cliente)
+  - Portafolio con modal de detalle, filtros por categoría, botón "Ver más"
+  - LinkedIn + Google Maps en footer
+  - Sección `#stats` eliminada (D09)
+- [x] Docs actualizados para el stack Astro + Sanity + Cloudflare
+
+### Lo que está en progreso
+- PR #4 abierto (`feat/lote-2-home`) — pendiente de merge. Incluye FAQ + portafolio interactivo + docs reescritos.
+
+### Próximo paso inmediato
+**Fase 2 — Setup de infraestructura.** Requiere tres cosas del cliente:
+1. Cuenta en Cloudflare (o acceso para crear una)
+2. Cuenta en Sanity (o acceso para crear una)
+3. Acceso al DNS del dominio `paisare.com`
+
+Sin estas tres cosas, la Fase 2 no puede comenzar.
 
 ---
 
-## Archivos canónicos que debes leer al retomar
+## Reglas que nunca se rompen
+1. **Nunca commits directos a `main`** — siempre rama + PR (D08)
+2. **WordPress en `paisare.com` permanece vivo** hasta que el nuevo sitio esté aprobado (D04)
+3. **No publicar datos no validados** en Schema, OG ni en el sitio (precios inventados, testimonios falsos, etc.)
+4. **Leer este archivo y `docs/PENDING.md` antes de cualquier cambio de código**
 
-| Prioridad | Archivo | Por qué |
+---
+
+## Mapa de ramas y PRs
+
+| Rama | Descripción | Estado |
 |---|---|---|
-| 1 | `RETOMAR.md` (este archivo) | Estado actual y próximos pasos |
-| 2 | `docs/PENDING.md` | Preguntas bloqueantes — qué hace falta del cliente |
-| 3 | `docs/DECISIONS.md` | Decisiones ya tomadas — no reabrir sin razón |
-| 4 | `docs/epics/website-redesign-epics-stories.md` | Plan completo con 17 Epics |
+| `main` | Rama principal — solo recibe merges vía PR | Activa |
+| `feat/fase-0-docs` | Documentación inicial | Mergeado (PR #1) |
+| `feat/lote-1a-config` | Config centralizada | Mergeado (PR #2) |
+| `feat/lote-1b-cleanup` | SEO, logos, Nosotros, Testimonios | Mergeado (PR #3) |
+| `feat/lote-2-home` | FAQ, portafolio interactivo, docs stack | **Abierto (PR #4)** |
+| `feat/fase-2-astro` | Setup Astro + Sanity + CF *(crear desde main)* | Pendiente |
+
+---
+
+## Archivos canónicos — leer en este orden
+
+| Prioridad | Archivo | Contenido |
+|---|---|---|
+| 1 | `RETOMAR.md` (este) | Estado actual y próximos pasos |
+| 2 | `docs/PENDING.md` | Qué falta del cliente para desbloquear cada fase |
+| 3 | `docs/DECISIONS.md` | Decisiones tomadas — no reabrir sin razón |
+| 4 | `docs/epics/website-redesign-epics-stories.md` | Plan completo con 13 Epics y fases |
 | 5 | `CHANGELOG.md` | Qué cambió y cuándo |
-| 6 | `docs/audit/risk-log.md` | Riesgos activos |
-| 7 | `docs/design/current-template-map.md` | Qué hay en la plantilla actual |
+| 6 | `Paisare Redesign.html` | Referencia visual para componentes Astro |
 
 ---
 
-## Qué ya está terminado
+## Bloqueantes activos por fase
 
-- [x] Fase 0 completa: toda la estructura `docs/` con 9 agentes documentados
-- [x] Auditoría del repositorio (`docs/audit/`)
-- [x] Mapa de la plantilla HTML actual (`docs/design/`)
-- [x] Estrategia de conversión y WhatsApp (`docs/strategy/`)
-- [x] Plan SEO y plantillas de inventario (`docs/seo/`)
-- [x] Arquitectura de tienda en línea (`docs/ecommerce/`)
-- [x] Plan de integración WordPress + CPTs (`docs/cms/`)
-- [x] Plan de implementación frontend (`docs/frontend/`)
-- [x] Checklists de QA, accesibilidad y performance (`docs/qa/`)
-- [x] Mapa de agentes y prompts reutilizables (`docs/agents/`)
-- [x] 17 Epics & Stories completas (`docs/epics/`)
-- [x] 8 decisiones registradas (`docs/DECISIONS.md`)
-- [x] 14 preguntas bloqueantes documentadas (`docs/PENDING.md`)
-- [x] CHANGELOG actualizado
-- [x] `EPICS_AND_STORIES.md` raíz convertido a índice/resumen
-- [x] Lote 1A: `src/js/config.js` centraliza WA, email, teléfono, horario
-- [x] Lote 1B: `#tweaks-panel` eliminado, favicon SVG/PNG real, OpenGraph y Schema.org con datos reales
-- [x] Lote 1B+: `#nosotros` (misión, visión, quiénes somos), `#testimonios` (3 reseñas Homify reales)
-- [x] Lote 1B+: Logo real en nav (favicon.svg) y footer (logo-white.svg), LinkedIn + Google Maps en footer
-- [x] Lote 1B+: Schema.org `sameAs` con FB/IG/LinkedIn/Pinterest, og:image con foto real del portafolio
-
----
-
-## Qué está en progreso
-
-- Nada. Lote 1B mergeado. Próximo: acordar alcance de Lote 2 con el cliente.
-
----
-
-## Qué está bloqueado
-
-| Lote/Fase | Bloqueado por |
+| Fase | Bloqueado por |
 |---|---|
-| Fase 2 (home mejorada) | Contenido real: Nosotros, Testimonios, FAQ; logos de clientes (P4) |
-| Fase 0.5 (baseline WordPress) | **P11/P12 — acceso a Search Console y admin WP** |
-| Fase 2 (home mejorada) | Stats (P3: ¿eliminar o reemplazar?), logos (P4: nuevos logos pendientes), contenido de Nosotros/Testimonios/FAQ por recibir |
-| Fase 3 (tienda MVP) | Catálogo de productos (P9) |
-| Fase 6 (checkout) | P6, P7, P8, P9, P13 — reglas comerciales completas |
+| **2 — Setup infra** | I1: cuenta Cloudflare · I2: workspace Sanity · I3: acceso DNS |
+| **3 — Migración contenido** | C1: export XML de WordPress · C2: lista de proyectos del portafolio |
+| **4 — Blog + Portafolio** | C3: logos de clientes · C4: FAQ revisado · C5: foto de equipo (opcional) |
+| **5 — Páginas de cliente** | P1: lista de proyectos/clientes · P2: correos de clientes |
+| **6 — Tienda** | T1: catálogo de productos · T2: cuenta Mercado Pago · T3: políticas de envío |
+| **8 — DNS flip** | Aprobación explícita del cliente |
+| **9 — Umbrel Pro** | U1: evaluación técnica post-lanzamiento |
 
 ---
 
-## Qué NO debe hacerse todavía
+## Datos de contacto confirmados del cliente
 
-1. **No tocar el sitio de producción** `paisare.com`
-2. **No migrar WordPress** — ni hacer cambios en la BD de producción
-3. **No activar checkout ni pagos** — hasta definir reglas comerciales (P6–P13)
-4. **No descargar imágenes** — hasta crear el inventario (`docs/audit/image-asset-inventory.md`)
-5. **No agregar Schema/OG con datos inventados** — solo con campos confirmados por el cliente
-6. **No publicar artículos inventados** — solo los reales de WordPress
-7. **No commitear a `main` directamente**
-
----
-
-## Próximo lote recomendado: Lote 2
-
-**Prerequisito:** ✅ Merge de Lote 1B completado.  
-**Rama:** `feat/lote-2-*` (crear desde `main`)  
-**Alcance sugerido (pendiente de priorizar con el cliente):**
-
-### Opción A — Sección `#clientes` (logos reales)
-- Bloqueado por P4: cliente debe entregar logos actualizados de clientes/marcas
-- Rama: `feat/lote-2-clientes`
-
-### Opción B — Portafolio mejorado
-- Imágenes descargadas localmente (hoy se sirven desde paisare.com/wp-content → riesgo R02)
-- Requiere inventario de imágenes primero (`docs/audit/image-asset-inventory.md`)
-
-### Opción C — Sección FAQ
-- Preguntas frecuentes reales del cliente
-- Bloqueado: cliente debe dictar las preguntas y respuestas
-
-### Opción D — Mejoras de performance/accesibilidad
-- Sin bloqueo de cliente — se puede hacer ya
-- Ver `docs/qa/performance-checklist.md` y `docs/qa/accessibility-checklist.md`
-
-**No tocar diseño ni layout sin coordinar con el cliente.**
+```
+WhatsApp:  524427730857   (display: +52 442 773 0857)
+Teléfono:  4422155474     (display: +52 442 215 5474)
+Email:     contacto@paisare.com
+Dirección (solo Schema): Hacienda el Salitre 410, Jardines de la Hacienda, Querétaro, Qro., MX
+Horario:   L–V 8:30–18:00 · Sábados con cita previa
+Redes:     facebook.com/paisare · instagram.com/paisaremx
+           linkedin.com/company/89912704 · pinterest.com/paisaremx
+           maps.app.goo.gl/2siHuQhVPnQBU9tG8
+```
 
 ---
 
 ## Checklist de verificación al retomar
 
 ```bash
-# Verificar estado del repo
-git status
-git branch
-
-# Ver qué hay en docs
-ls docs/
-
-# Ver preguntas bloqueantes activas
-cat docs/PENDING.md
-
-# Ver últimos cambios
-tail -50 CHANGELOG.md
+git status        # verificar rama actual
+git branch        # confirmar que NO estás en main
+cat docs/PENDING.md  # qué está bloqueado
+tail -40 CHANGELOG.md  # qué cambió recientemente
 ```
 
 Antes de cualquier cambio de código:
-- [ ] Estás en la rama correcta (nunca en `main`)
-- [ ] Leíste `docs/PENDING.md` y sabes qué está bloqueado
-- [ ] Tu commit va a referenciar la Epic/Story correcta
-- [ ] El cambio no rompe la vista actual en browser
+- [ ] Estás en una rama feature (nunca en `main`)
+- [ ] Leíste `docs/PENDING.md` y sabes qué está desbloqueado
+- [ ] Tu cambio referencia un Epic/Story del plan
 
 ---
 
-## Stack del proyecto
+## PROMPT DE SESIÓN
+*Copia y pega esto al inicio de una nueva conversación para retomar el proyecto:*
 
-| Capa | Tecnología actual | Tecnología final (Fase 5+) |
-|---|---|---|
-| Markup | HTML plano (monolítico) | PHP templates (tema WordPress) |
-| Estilos | CSS inline embebido | Archivos CSS separados → enqueue WP |
-| Scripts | JS inline embebido | Archivos JS separados → enqueue WP |
-| CMS | Ninguno (prototipo estático) | WordPress moderno |
-| Tienda | Ninguna | WooCommerce |
-| Build | Ninguno | Opcional (sin bundler si es posible) |
-| Hosting | GitHub (solo código) | Servidor con PHP + MySQL |
+```
+Continúa el proyecto Paisare Web Redesign desde:
+h:\Unidades compartidas\Paisare - Central\Nueva web Paisare
 
----
+Lee RETOMAR.md primero.
 
-## Preguntas pendientes más urgentes
+CONTEXTO RÁPIDO:
+- Stack confirmado: Astro + Sanity + Cloudflare Pages/Workers/Access + Mercado Pago
+- WordPress en paisare.com permanece vivo hasta Fase 8 (DNS flip zero-downtime)
+- Fases 0 y 1 completadas. Prototipo HTML en Paisare Redesign.html es la referencia de diseño.
+- PR #4 abierto (feat/lote-2-home): FAQ, portafolio interactivo, docs reescritos
 
-1. **P4** — Enviar nuevos logos de clientes para sección `#clientes` (bloquea Lote 2 opción A)
-2. **P11** — ¿Hay acceso a Search Console y GA4? (bloquea Fase 0.5 — analytics baseline)
-3. **P12** — ¿Hay acceso al admin de WordPress? (bloquea Fase 0.5)
-4. **FAQ** — Preguntas frecuentes reales del cliente (bloquea Lote 2 opción C)
-5. **Testimonios adicionales** — La sección tiene 3 reseñas de Homify; se pueden enriquecer con reseñas de Google/Facebook cuando estén accesibles
+PRÓXIMOS PASOS (en orden):
+1. Mergear PR #4 cuando el cliente confirme
+2. Crear rama feat/fase-2-astro desde main
+3. Inicializar proyecto Astro + conectar Sanity + deploy a Cloudflare Pages (Fase 2)
+   - Requiere del cliente: cuenta Cloudflare, workspace Sanity, acceso DNS
 
-**Resueltos en Lote 1B:**
-- ~~P3~~ — `#stats` eliminada
-- ~~P5~~ — Schema con horario L–V 8:30–18:00, sábados con cita previa
-
-Ver lista completa: [`docs/PENDING.md`](docs/PENDING.md)
+REGLAS OBLIGATORIAS:
+- Nunca commitear directo a main — siempre rama + PR
+- WordPress paisare.com NO SE TOCA hasta Fase 8
+- Leer docs/PENDING.md antes de cualquier cambio de código
+- Datos del cliente solo con confirmación explícita (ver docs/PENDING.md para los ya confirmados)
+```

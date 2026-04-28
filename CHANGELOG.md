@@ -2,6 +2,65 @@
 
 Todos los cambios notables de este proyecto se documentan aqui.
 
+## 2026-04-28 — Decisión de stack: Astro + Sanity + Cloudflare + Mercado Pago (reescritura completa de docs)
+
+**Rama:** `feat/lote-2-home`  
+**Tipo:** Decisión de arquitectura + reescritura de documentación de planificación
+
+### Decisión
+Stack de producción confirmado: **Astro + Sanity + Cloudflare Pages/Workers/Access + Mercado Pago**.
+WordPress descartado como plataforma destino. El sitio WordPress actual permanece vivo (zero-downtime) hasta Fase 8.
+
+### Documentos reescritos desde cero
+- `docs/DECISIONS.md` — 14 decisiones técnicas del proyecto, incluyendo:
+  - D01: Stack Astro + Sanity + Cloudflare (supersede WordPress + WooCommerce)
+  - D03: Cloudflare Pages como hosting + evaluación futura de Umbrel Pro (D03b)
+  - D04: Zero-downtime migration — WordPress permanece vivo hasta aprobación
+  - D05: Mercado Pago para la tienda (sin costo fijo, ~3.5% por transacción)
+  - D06: Cloudflare Access para páginas privadas de cliente (magic link por email)
+- `docs/epics/website-redesign-epics-stories.md` — 13 Epics reescritos para el stack real, 9 fases de implementación
+- `docs/PENDING.md` — Pendientes reorganizados por categoría (infraestructura, contenido, tienda, cliente, analytics, futuro)
+- `RETOMAR.md` — Reescrito con estado actual, mapa de ramas, bloqueantes activos y **prompt de sesión** para reanudar en cualquier conversación futura
+
+### Qué NO cambió
+- El prototipo HTML (`Paisare Redesign.html`) — sigue siendo la referencia visual para los componentes Astro
+- Los assets en `src/img/` — se reutilizarán en Astro
+- Las secciones de diseño en `docs/design/`, `docs/strategy/`, `docs/qa/` — siguen siendo válidas
+
+---
+
+## 2026-04-28 — Lote 2 inicial: FAQ, portafolio interactivo, carpetas de assets, decisiones de arquitectura
+
+**Rama:** `feat/lote-2-home`  
+**Epic/Story:** E5-S5.6 (FAQ), E7-S7.1 (portafolio interactivo), E16 (decisiones), E17 (fases)
+
+### Creado
+
+- `assets/logos/clientes/` — carpeta para logos nuevos del cliente (PNG/SVG fondo transparente)
+- `assets/portfolio/general/` — carpeta para imágenes generales de apoyo (no de un proyecto específico)
+- Sección `#faq` con 10 preguntas/respuestas autogeneradas sobre paisajismo y construcción
+- Schema `FAQPage` JSON-LD en el `<head>` para SEO enriquecido
+- Modal de detalle del portafolio: al hacer clic en un proyecto se abre panel con galería, descripción y CTA de WhatsApp
+
+### Modificado en `Paisare Redesign.html`
+
+- Portfolio: cada ítem tiene `data-id` y es interactivo (role="button", tabindex, aria-label)
+- Portfolio: botón "Ver más proyectos →" que respeta el filtro activo (muestra 4 inicialmente, expande al clic)
+- Portfolio: motor de datos JS `pfProjects` con nombre, categoría, descripción y array de imágenes por proyecto
+
+### Modificado en `docs/`
+
+- `docs/DECISIONS.md`: agregadas D09 (#stats eliminada), D10 (performance diferida), D11 (apertura a Astro+Sanity)
+- `docs/epics/website-redesign-epics-stories.md`: Story 5.4/5.5 marcadas Completado, Story 5.6 marcada Completado borrador, Epic 17 tabla actualizada con estados reales y nota de secuencia (0.5 y 1 no bloquean Fase 2), Story 13.3 parcialmente completada
+
+### Confirmado / aclarado
+
+- `#stats` eliminada en Lote 1B — no existía en el HTML actual (D09)
+- Fase 0.5 (baseline WP) y Fase 1 (modularización) no bloquean Fase 2 del prototipo
+- Performance/accesibilidad se ejecuta al final, después de estructura + imágenes (D10)
+
+---
+
 ## 2026-04-27 — Lote 1B (ampliado): Logo real, Nosotros, Testimonios y redes sociales
 
 **Rama:** `feat/lote-1b-cleanup`  
