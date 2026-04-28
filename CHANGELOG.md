@@ -2,6 +2,28 @@
 
 Todos los cambios notables de este proyecto se documentan aqui.
 
+## 2026-04-28 — Merge PR #4 + Epics & Stories con apéndices técnicos completos
+
+**Rama:** `docs/epics-detallados` (PR #5 abierto)  
+**Tipo:** Documentación técnica
+
+### Mergeado
+- PR #4 (`feat/lote-2-home`) mergeado a `main` — incluye FAQ, portafolio interactivo, docs stack
+
+### Añadido a `docs/epics/website-redesign-epics-stories.md`
+- **Apéndice A — Schemas de Sanity** (campo por campo): `proyecto`, `articulo`, `servicio`, `producto`, `paginaCliente`, `testimonio`, `faqItem`, `pedido` — con tipos Sanity, tipos TypeScript, flags required y validaciones
+- **Apéndice B — Inventario de componentes Astro**: todos los archivos `.astro` a crear con TypeScript interfaces de props; estructura completa de `src/pages/`, `src/components/`, `src/layouts/`
+- **Apéndice C — Mapa de rutas**: tabla URL → tipo (Static/Dynamic SSG/SSR Worker) → fuente de datos → Schema.org → indexable
+- **Apéndice D — Variables de entorno**: `PUBLIC_SANITY_PROJECT_ID`, `PUBLIC_SANITY_DATASET`, `PUBLIC_WEB3FORMS_KEY`, `SANITY_API_TOKEN`, `MP_ACCESS_TOKEN`, `MP_WEBHOOK_SECRET`, `CF_ACCESS_AUD` — con fuente y scope
+- **Apéndice E — Estrategia de ramas git**: tabla fase → rama → PR esperado → criterio de merge → quién aprueba
+- **Stories de Epics 3–7 mejoradas**: formato uniforme con Objetivo · Entregables (archivos concretos) · Criterios de aceptación (checklist testable) · Talla (S/M/L) · Rama · Bloqueantes
+
+### Actualizado
+- `RETOMAR.md` — estado post-merge PR #4, PR #5 como activo, prompt de sesión actualizado
+- `CHANGELOG.md` — esta entrada
+
+---
+
 ## 2026-04-28 — Decisión de stack: Astro + Sanity + Cloudflare + Mercado Pago (reescritura completa de docs)
 
 **Rama:** `feat/lote-2-home`  

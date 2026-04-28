@@ -1,5 +1,5 @@
 # RETOMAR — Paisare Web Redesign
-**Última actualización:** 2026-04-28  
+**Última actualización:** 2026-04-28 (post-merge PR #4 · Epics & Stories detallados)  
 **Para usar:** Lee este archivo completo al inicio de cualquier sesión nueva antes de hacer cualquier cambio.
 
 ---
@@ -39,10 +39,10 @@
 - [x] Docs actualizados para el stack Astro + Sanity + Cloudflare
 
 ### Lo que está en progreso
-- PR #4 abierto (`feat/lote-2-home`) — pendiente de merge. Incluye FAQ + portafolio interactivo + docs reescritos.
+- PR #5 abierto (`docs/epics-detallados`) — Epics & Stories reescritos con 5 apéndices técnicos detallados (Sanity schemas campo por campo, inventario de componentes Astro, mapa de rutas, vars de entorno, estrategia de ramas).
 
 ### Próximo paso inmediato
-**Fase 2 — Setup de infraestructura.** Requiere tres cosas del cliente:
+**Mergear PR #5** y luego comenzar **Fase 2 — Setup de infraestructura.** Requiere tres cosas del cliente:
 1. Cuenta en Cloudflare (o acceso para crear una)
 2. Cuenta en Sanity (o acceso para crear una)
 3. Acceso al DNS del dominio `paisare.com`
@@ -67,8 +67,9 @@ Sin estas tres cosas, la Fase 2 no puede comenzar.
 | `feat/fase-0-docs` | Documentación inicial | Mergeado (PR #1) |
 | `feat/lote-1a-config` | Config centralizada | Mergeado (PR #2) |
 | `feat/lote-1b-cleanup` | SEO, logos, Nosotros, Testimonios | Mergeado (PR #3) |
-| `feat/lote-2-home` | FAQ, portafolio interactivo, docs stack | **Abierto (PR #4)** |
-| `feat/fase-2-astro` | Setup Astro + Sanity + CF *(crear desde main)* | Pendiente |
+| `feat/lote-2-home` | FAQ, portafolio interactivo, docs stack | Mergeado (PR #4) |
+| `docs/epics-detallados` | Apéndices técnicos en Epics & Stories | **Abierto (PR #5)** |
+| `feat/fase-2-astro` | Setup Astro + Sanity + CF *(crear desde main tras merge PR #5)* | Pendiente |
 
 ---
 
@@ -140,20 +141,23 @@ h:\Unidades compartidas\Paisare - Central\Nueva web Paisare
 Lee RETOMAR.md primero.
 
 CONTEXTO RÁPIDO:
-- Stack confirmado: Astro + Sanity + Cloudflare Pages/Workers/Access + Mercado Pago
+- Stack: Astro + Sanity + Cloudflare Pages/Workers/Access + Mercado Pago
 - WordPress en paisare.com permanece vivo hasta Fase 8 (DNS flip zero-downtime)
 - Fases 0 y 1 completadas. Prototipo HTML en Paisare Redesign.html es la referencia de diseño.
-- PR #4 abierto (feat/lote-2-home): FAQ, portafolio interactivo, docs reescritos
+- PRs #1–#4 mergeados. PR #5 (docs/epics-detallados) abierto — puede estar mergeado al retomar.
+- docs/epics/website-redesign-epics-stories.md tiene apéndices técnicos completos (Sanity schemas,
+  componentes Astro, mapa de rutas, vars de entorno, estrategia de ramas)
 
 PRÓXIMOS PASOS (en orden):
-1. Mergear PR #4 cuando el cliente confirme
+1. Mergear PR #5 si sigue abierto
 2. Crear rama feat/fase-2-astro desde main
-3. Inicializar proyecto Astro + conectar Sanity + deploy a Cloudflare Pages (Fase 2)
-   - Requiere del cliente: cuenta Cloudflare, workspace Sanity, acceso DNS
+3. Inicializar proyecto Astro + conectar Sanity + deploy a Cloudflare Pages (Fase 2, Epic 3)
+   - Requiere del cliente: cuenta Cloudflare, workspace Sanity, acceso DNS a paisare.com
+   - Ver docs/PENDING.md items I1, I2, I3
 
 REGLAS OBLIGATORIAS:
 - Nunca commitear directo a main — siempre rama + PR
 - WordPress paisare.com NO SE TOCA hasta Fase 8
 - Leer docs/PENDING.md antes de cualquier cambio de código
-- Datos del cliente solo con confirmación explícita (ver docs/PENDING.md para los ya confirmados)
+- Datos del cliente confirmados están en docs/PENDING.md (sección "Estado P1-P14")
 ```
