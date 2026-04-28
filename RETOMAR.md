@@ -1,13 +1,14 @@
 # RETOMAR — Handoff rápido del proyecto Paisare Redesign
-**Última actualización:** 2026-04-27 (Lote 1B completado — pendiente PR)  
+**Última actualización:** 2026-04-28 (Lote 1B mergeado en main — PR #3 cerrado)  
 **Para usar:** Leer este archivo al inicio de cualquier nueva conversación antes de hacer cualquier cambio.
 
 ---
 
 ## Estado actual del proyecto
 
-**Fase activa:** Lote 1B completado. Pendiente: PR de `feat/lote-1b-cleanup` → main.  
-**Rama activa actual:** `feat/lote-1b-cleanup` (lista para PR → main)  
+**Fase activa:** Lote 1B mergeado. Próximo: Lote 2 (`feat/lote-2-*`) desde `main`.  
+**Rama activa actual:** `main` — lista para abrir nueva rama de Lote 2  
+**Preview pública (GitHub Pages):** https://reguer.github.io/paisare-redesign/ (branch: feat/lote-1b-cleanup)  
 **Sitio de producción:** https://www.paisare.com/ — WordPress con tema Select 2.4.1. **NO TOCAR.**
 
 ---
@@ -18,9 +19,9 @@
 |---|---|
 | Rama de documentación | `feat/fase-0-docs` (mergeada en main — PR #1) |
 | Rama lote 1A | `feat/lote-1a-config` (mergeada en main — PR #2) |
+| Rama lote 1B | `feat/lote-1b-cleanup` (mergeada en main — PR #3) |
 | Branch principal | `main` |
-| Rama activa | `feat/lote-1b-cleanup` (lista para PR → main) |
-| Siguiente rama | `feat/lote-2-home` (crear después de merge de 1B) |
+| Siguiente rama | `feat/lote-2-*` (crear desde `main`) |
 | Regla obligatoria | **Nunca commits directo a `main`. Siempre rama + PR.** |
 | Repo remoto | `https://github.com/reguer/paisare-redesign.git` |
 
@@ -28,9 +29,8 @@
 
 ## Último commit relevante
 
-- `c611c4e` — "Initial Paisare redesign" (2026-04-27) en `main`
-- Fase 0 completada en `feat/fase-0-docs` — pendiente de merge vía PR
-- Lote 1A completado en `feat/lote-1a-config` — pendiente de merge vía PR
+- `6ac920b` — "Lote 1B completo: cleanup, SEO, brand assets, Nosotros, Testimonios" (2026-04-28) en `main`
+- PR #3 mergeado — rama `feat/lote-1b-cleanup` ya en main
 
 ---
 
@@ -66,13 +66,16 @@
 - [x] CHANGELOG actualizado
 - [x] `EPICS_AND_STORIES.md` raíz convertido a índice/resumen
 - [x] Lote 1A: `src/js/config.js` centraliza WA, email, teléfono, horario
-- [x] Lote 1B: `#tweaks-panel` eliminado, favicon SVG placeholder, OpenGraph y Schema.org mínimos
+- [x] Lote 1B: `#tweaks-panel` eliminado, favicon SVG/PNG real, OpenGraph y Schema.org con datos reales
+- [x] Lote 1B+: `#nosotros` (misión, visión, quiénes somos), `#testimonios` (3 reseñas Homify reales)
+- [x] Lote 1B+: Logo real en nav (favicon.svg) y footer (logo-white.svg), LinkedIn + Google Maps en footer
+- [x] Lote 1B+: Schema.org `sameAs` con FB/IG/LinkedIn/Pinterest, og:image con foto real del portafolio
 
 ---
 
 ## Qué está en progreso
 
-- [ ] PR de `feat/lote-1b-cleanup` → `main` — pendiente de abrir y mergear
+- Nada. Lote 1B mergeado. Próximo: acordar alcance de Lote 2 con el cliente.
 
 ---
 
@@ -100,26 +103,29 @@
 
 ---
 
-## Próximo lote recomendado: Lote 2 — Home mejorada
+## Próximo lote recomendado: Lote 2
 
-**Prerequisito:** Merge de Lote 1B vía PR.  
-**Rama:** `feat/lote-2-home` (crear desde `main` tras merge)  
-**Alcance exacto (cuando el cliente entregue el contenido):**
+**Prerequisito:** ✅ Merge de Lote 1B completado.  
+**Rama:** `feat/lote-2-*` (crear desde `main`)  
+**Alcance sugerido (pendiente de priorizar con el cliente):**
 
-1. Reemplazar sección `#clientes` con logos reales (bloqueado por P4)
-2. Agregar sección Nosotros con contenido real del cliente
-3. Agregar sección Testimonios con contenido real
-4. Agregar sección FAQ con preguntas reales
-5. Agregar `og:image` una vez aprobada la fotografía de portada
-6. Actualizar `CHANGELOG.md` y abrir PR ligado a `[E2]`
+### Opción A — Sección `#clientes` (logos reales)
+- Bloqueado por P4: cliente debe entregar logos actualizados de clientes/marcas
+- Rama: `feat/lote-2-clientes`
 
-**Pendientes del cliente que desbloquean Lote 2:**  
-- Logos actualizados de clientes (P4)  
-- Texto real de Nosotros / misión / historia  
-- Testimonios reales (nombre + empresa + texto)  
-- Fotografía de portada aprobada para OG
+### Opción B — Portafolio mejorado
+- Imágenes descargadas localmente (hoy se sirven desde paisare.com/wp-content → riesgo R02)
+- Requiere inventario de imágenes primero (`docs/audit/image-asset-inventory.md`)
 
-**No tocar diseño ni layout hasta tener el contenido.**
+### Opción C — Sección FAQ
+- Preguntas frecuentes reales del cliente
+- Bloqueado: cliente debe dictar las preguntas y respuestas
+
+### Opción D — Mejoras de performance/accesibilidad
+- Sin bloqueo de cliente — se puede hacer ya
+- Ver `docs/qa/performance-checklist.md` y `docs/qa/accessibility-checklist.md`
+
+**No tocar diseño ni layout sin coordinar con el cliente.**
 
 ---
 
@@ -164,11 +170,14 @@ Antes de cualquier cambio de código:
 
 ## Preguntas pendientes más urgentes
 
-1. **P3** — ¿Eliminar sección `#stats` o reemplazar con métricas reales? (bloquea Fase 2)
-2. **P4** — Enviar nuevos logos de clientes para sección `#clientes`
-3. **P5 parcial** — ¿El horario aplica lunes a viernes únicamente o incluye sábados? (bloquea Schema en Lote 1B)
-4. **P11** — ¿Hay acceso a Search Console y GA4? (bloquea Fase 0.5)
-5. **P12** — ¿Hay acceso al admin de WordPress? (bloquea Fase 0.5)
-6. **Nosotros/Testimonios/FAQ** — Contenido real del cliente para estas secciones nuevas
+1. **P4** — Enviar nuevos logos de clientes para sección `#clientes` (bloquea Lote 2 opción A)
+2. **P11** — ¿Hay acceso a Search Console y GA4? (bloquea Fase 0.5 — analytics baseline)
+3. **P12** — ¿Hay acceso al admin de WordPress? (bloquea Fase 0.5)
+4. **FAQ** — Preguntas frecuentes reales del cliente (bloquea Lote 2 opción C)
+5. **Testimonios adicionales** — La sección tiene 3 reseñas de Homify; se pueden enriquecer con reseñas de Google/Facebook cuando estén accesibles
+
+**Resueltos en Lote 1B:**
+- ~~P3~~ — `#stats` eliminada
+- ~~P5~~ — Schema con horario L–V 8:30–18:00, sábados con cita previa
 
 Ver lista completa: [`docs/PENDING.md`](docs/PENDING.md)
