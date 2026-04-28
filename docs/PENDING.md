@@ -14,7 +14,7 @@
 | P4 | ¿Los 7 logos de clientes tienen permiso de uso vigente? | Fase 2 (sección clientes) | **RESUELTO** 2026-04-27 — ver nota |
 | P5 | ¿Dirección exacta, teléfono oficial y horario? | Lote 1B (Schema/OG), Footer | **PARCIALMENTE RESUELTO** 2026-04-27 |
 | P6 | ¿IVA, facturas y métodos de pago? | Fase 6 (checkout) | **RESUELTO** 2026-04-27 — ver notas |
-| P7 | ¿Hay envíos a domicilio o solo recolección en Querétaro? ¿Cuál es el costo de envío? | Fase 6 (checkout) | Abierto |
+| P7 | ¿Envíos a domicilio o recolección? ¿Costo? | Fase 6 (checkout) | **RESUELTO** 2026-04-27 — ver notas |
 | P8 | ¿Cuál es el radio o zonas de cobertura de envíos? | Fase 6 (checkout) | Abierto |
 | P9 | ¿Existe un catálogo de productos con nombres, descripciones, precios y SKUs? ¿Hay stock administrado? | Fase 3 (tienda catálogo) | Abierto |
 | P10 | ¿El dominio `paisare.com` se conserva en el mismo servidor o se migra a uno nuevo? | Fase 7 (migración) | Abierto |
@@ -52,6 +52,15 @@ Las métricas actuales (27,060 plantas, 226 proyectos, 163 clientes, 1,095 tazas
 
 **P4 — Logos de clientes:**  
 Los 7 logos actuales están desactualizados. Existen nuevos logos. Pendiente: el cliente debe proveer los nuevos archivos de logos para la sección `#clientes`.
+
+**P7 — Envíos y logística:**
+- **Artículos ligeros (insumos, materiales pequeños):** envío a todo el país
+- **Plantas grandes:** envío con fletera externa — el cliente coordina directamente
+- **Camiones, maquinaria, personal de instalación:** NO viajan — solo disponibles en Querétaro
+- **Recolección:** disponible en Querétaro (el cliente recoge)
+- **Pendiente para Fase 6:** costo de envío por zona/peso, paquetería(s) aceptadas para envíos nacionales, proceso para coordinar fletera externa con el cliente
+
+---
 
 **P6 — Métodos de pago y facturación:**
 - **IVA:** incluido en el precio mostrado (no se desglosa al cliente)
