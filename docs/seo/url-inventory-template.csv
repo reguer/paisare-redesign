@@ -1,0 +1,7 @@
+url,tipo,title_actual,description_actual,h1_actual,canonical,indexable,backlinks_estimados,trafico_estimado,decision,nueva_url,redirect_301,notas
+https://www.paisare.com/,home,,,,,,,,conservar,,,
+https://www.paisare.com/servicios/,pagina,,,,,,,,conservar,,,
+https://www.paisare.com/portafolio/,portafolio,,,,,,,,conservar,,,
+https://www.paisare.com/blog-2/,blog,,,,,,,,revisar,,,Verificar si conviene cambiar slug a /blog/
+https://www.paisare.com/sobre-nosotros/,pagina,,,,,,,,conservar,,,
+https://www.paisare.com/contacto/,pagina,,,,,,,,conservar,,,
