@@ -1,18 +1,9 @@
 import { defineConfig } from 'astro/config'
-import cloudflare from '@astrojs/cloudflare'
 
+// output: 'static' para Fase 2 — solo páginas SSG, sin Workers.
+// Cambiar a 'hybrid' + @astrojs/cloudflare en Fase 5 cuando se agreguen
+// las páginas privadas de cliente (SSR con Cloudflare Access).
 export default defineConfig({
-  output: 'hybrid',
-  adapter: cloudflare({ mode: 'directory' }),
+  output: 'static',
   site: 'https://nuevo.paisare.com',
-  vite: {
-    resolve: {
-      alias: {
-        '@lib': '/src/lib',
-        '@components': '/src/components',
-        '@layouts': '/src/layouts',
-        '@styles': '/src/styles',
-      },
-    },
-  },
 })
