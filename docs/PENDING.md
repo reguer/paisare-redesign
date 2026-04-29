@@ -1,7 +1,7 @@
 # Pendientes y preguntas bloqueantes
 **Agente:** Change Manager  
 **Actualizar:** cada vez que se resuelve o agrega un pendiente  
-**Última actualización:** 2026-04-28  
+**Última actualización:** 2026-04-29  
 **Stack confirmado:** Astro + Sanity + Cloudflare + Mercado Pago
 
 ---
@@ -27,12 +27,22 @@ Todas resueltas durante Fase 0 (2026-04-27). Ver notas en historial si se necesi
 
 | ID | Pendiente | Necesita |
 |---|---|---|
-| I1 | Crear cuenta en Cloudflare con `proyectos@paisare.com` (proyecto dedicado) | **Confirmado 2026-04-28** — cuenta a crear por equipo |
-| I2 | Crear workspace en Sanity con `proyectos@paisare.com` (proyecto dedicado) | **Confirmado 2026-04-28** — cuenta a crear por equipo |
-| I3 | DNS en servidor websupport — añadir CNAME `nuevo.paisare.com → CF Pages URL` para Fases 2–7. En Fase 8: transferir dominio a Cloudflare Registrar (elimina websupport) | **Confirmado 2026-04-28** — websupport controla el DNS actualmente |
-| I4 | Crear cuenta de GitHub (o confirmar repo `reguer/paisare-redesign`) como repositorio de despliegue | Confirmado — ya existe |
+| I1 | Cuenta Cloudflare `proyectos@paisare.com` → proyecto `paisare-web` conectado al repo | **✅ Hecho** — Account ID: `190a3cddbfacb79832920ed469ba60e3` |
+| I1a | CF Pages: vaciar "Deploy command" + set "Build output directory" = `astro-site/dist` → Retry | **⏳ Pendiente** (build de Astro OK, deploy command causaba auth error) |
+| I1b | Crear CF API Token: My Profile → API Tokens → "Edit Cloudflare Pages" template | **⏳ Pendiente** — necesario para GitHub Actions |
+| I2 | Workspace Sanity `proyectos@paisare.com` | **✅ Hecho** — Project ID: `qggf24bv` · token creado (valor pendiente de copiar) |
+| I3 | DNS en websupport: 2 CNAMEs (ver abajo) | **⏳ Pendiente** |
+| I3a | CNAME: `nuevo` → `paisare-web.pages.dev` | **⏳ Pendiente** |
+| I3b | CNAME: `studio` → `qggf24bv.sanity.studio` | **⏳ Pendiente** |
+| I4 | Repo GitHub `reguer/paisare-redesign` | **✅ Confirmado** — ya existe |
+| I5 | 4 secrets en GitHub Actions (`CF_API_TOKEN`, `CF_ACCOUNT_ID`, `PUBLIC_SANITY_PROJECT_ID`, `SANITY_API_TOKEN`) | **⏳ Pendiente** — `CF_ACCOUNT_ID` y `PUBLIC_SANITY_PROJECT_ID` ya se conocen |
+| I6 | Deploy Sanity Studio: `cd sanity-studio && npm install && npx sanity deploy` | **⏳ Pendiente** |
 
-**Nota hosting (2026-04-28):** Cloudflare Pages es el hosting principal gratuito Y el failover de Umbrel Pro. No se necesita un tercer servicio. Arquitectura: CF Pages (siempre activo) + Umbrel Pro (Fase 9, self-hosted, CF como respaldo automático).
+**Valores confirmados (2026-04-29):**
+- CF Account ID: `190a3cddbfacb79832920ed469ba60e3`
+- Sanity Project ID: `qggf24bv`
+- GitHub secret `CF_ACCOUNT_ID` listo para agregar
+- GitHub secret `PUBLIC_SANITY_PROJECT_ID` = `qggf24bv` listo para agregar
 
 ### CONTENIDO (bloquean Fase 3 y 4)
 

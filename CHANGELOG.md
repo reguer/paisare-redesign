@@ -2,6 +2,31 @@
 
 Todos los cambios notables de este proyecto se documentan aqui.
 
+## 2026-04-29 — Fase 2: diagnóstico CF Pages + valores de infra confirmados
+
+**Rama:** `main` (fixes directos al workflow)  
+**Tipo:** Fix de configuración
+
+### Confirmado durante setup manual
+- CF Account ID: `190a3cddbfacb79832920ed469ba60e3`
+- Sanity Project ID: `qggf24bv`
+- Build de Astro exitoso en CF Pages (output:static, 1 página en 1.11s)
+- Error diagnosticado: "Deploy command" con Wrangler falla dentro del ambiente nativo de CF Pages
+  (CF Pages ya hace el deploy automáticamente — el comando es redundante y causa auth error 10000)
+
+### Fix aplicado
+- `astro.config.mjs` → `output: 'static'`, removido adaptador `@astrojs/cloudflare` (se vuelve a agregar en Fase 5)
+- `package.json` → removido `@astrojs/cloudflare` de dependencies
+- `.github/workflows/deploy.yml` → `npm install` en lugar de `npm ci`
+
+### Pendiente (pasos manuales — no ejecutados en esta sesión)
+- Vaciar "Deploy command" en CF Pages dashboard + set "Build output directory" = `astro-site/dist`
+- Crear CF API Token → agregar 4 secrets en GitHub
+- 2 registros CNAME en websupport
+- `npx sanity deploy` en `sanity-studio/`
+
+---
+
 ## 2026-04-28 — Fase 2: Setup infraestructura Astro + Sanity + Cloudflare (PR #6)
 
 **Rama:** `feat/fase-2-astro`  
