@@ -1,5 +1,5 @@
 # RETOMAR — Paisare Web Redesign
-**Última actualización:** 2026-04-28 (post-merge PR #4 · Epics & Stories detallados)  
+**Última actualización:** 2026-04-28 (PR #6 abierto · Fase 2 — Setup infra Astro + Sanity + CF)  
 **Para usar:** Lee este archivo completo al inicio de cualquier sesión nueva antes de hacer cualquier cambio.
 
 ---
@@ -39,15 +39,31 @@
 - [x] Docs actualizados para el stack Astro + Sanity + Cloudflare
 
 ### Lo que está en progreso
-- PR #5 abierto (`docs/epics-detallados`) — Epics & Stories reescritos con 5 apéndices técnicos detallados (Sanity schemas campo por campo, inventario de componentes Astro, mapa de rutas, vars de entorno, estrategia de ramas).
+- **PR #6 abierto** (`feat/fase-2-astro`) — Setup completo de infraestructura:
+  - `astro-site/` — proyecto Astro 5 con CF adapter, layouts, config, sanity client, GROQ queries
+  - `sanity-studio/` — Studio con 9 schemas completos (proyecto, artículo, servicio, producto, paginaCliente, testimonio, faqItem, pedido, blockContent)
+  - `.github/workflows/deploy.yml` — pipeline CI/CD
+  - `docs/infra/` — dns-map.md y cicd.md
 
-### Próximo paso inmediato
-**Mergear PR #5** y luego comenzar **Fase 2 — Setup de infraestructura.** Requiere tres cosas del cliente:
-1. Cuenta en Cloudflare (o acceso para crear una)
-2. Cuenta en Sanity (o acceso para crear una)
-3. Acceso al DNS del dominio `paisare.com`
+### Próximo paso inmediato (pasos manuales del cliente)
 
-Sin estas tres cosas, la Fase 2 no puede comenzar.
+El código está listo. Para activar el pipeline se necesitan 4 acciones manuales:
+
+1. **Crear cuenta Cloudflare** en cloudflare.com con `proyectos@paisare.com`  
+   → Crear proyecto Pages llamado `paisare-web` conectado al repo `reguer/paisare-redesign`  
+   → Obtener `CF_ACCOUNT_ID` y crear `CF_API_TOKEN` (ver `docs/infra/cicd.md`)
+
+2. **Crear workspace Sanity** en sanity.io con `proyectos@paisare.com`  
+   → Copiar el `Project ID` del dashboard  
+   → Crear token con rol "Read"
+
+3. **Agregar CNAME en websupport:**  
+   `nuevo → paisare-web.pages.dev` y `studio → <projectId>.sanity.studio`
+
+4. **Agregar secrets en GitHub** (Settings → Secrets → Actions):  
+   `CF_API_TOKEN`, `CF_ACCOUNT_ID`, `PUBLIC_SANITY_PROJECT_ID`, `SANITY_API_TOKEN`
+
+Cuando los 4 pasos estén listos: mergear PR #6 → primer deploy automático a `nuevo.paisare.com`.
 
 ---
 
@@ -69,7 +85,7 @@ Sin estas tres cosas, la Fase 2 no puede comenzar.
 | `feat/lote-1b-cleanup` | SEO, logos, Nosotros, Testimonios | Mergeado (PR #3) |
 | `feat/lote-2-home` | FAQ, portafolio interactivo, docs stack | Mergeado (PR #4) |
 | `docs/epics-detallados` | Apéndices técnicos en Epics & Stories | **Abierto (PR #5)** |
-| `feat/fase-2-astro` | Setup Astro + Sanity + CF *(crear desde main tras merge PR #5)* | Pendiente |
+| `feat/fase-2-astro` | Setup Astro + Sanity + CF | **Abierto (PR #6)** |
 
 ---
 
@@ -90,7 +106,7 @@ Sin estas tres cosas, la Fase 2 no puede comenzar.
 
 | Fase | Bloqueado por |
 |---|---|
-| **2 — Setup infra** | I1: cuenta Cloudflare · I2: workspace Sanity · I3: acceso DNS |
+| **2 — Setup infra** | ✅ Código listo (PR #6) · ⏳ Pasos manuales: crear cuentas CF+Sanity, CNAME en websupport, secrets en GitHub |
 | **3 — Migración contenido** | C1: export XML de WordPress · C2: lista de proyectos del portafolio |
 | **4 — Blog + Portafolio** | C3: logos de clientes · C4: FAQ revisado · C5: foto de equipo (opcional) |
 | **5 — Páginas de cliente** | P1: lista de proyectos/clientes · P2: correos de clientes |

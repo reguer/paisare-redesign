@@ -27,10 +27,12 @@ Todas resueltas durante Fase 0 (2026-04-27). Ver notas en historial si se necesi
 
 | ID | Pendiente | Necesita |
 |---|---|---|
-| I1 | Crear cuenta en Cloudflare y verificar dominio `paisare.com` | Cliente / equipo |
-| I2 | Crear workspace en Sanity con correo del proyecto | Cliente / equipo |
-| I3 | Acceso al DNS del dominio para apuntar subdominio `nuevo.paisare.com` a CF Pages | Cliente / equipo |
+| I1 | Crear cuenta en Cloudflare con `proyectos@paisare.com` (proyecto dedicado) | **Confirmado 2026-04-28** — cuenta a crear por equipo |
+| I2 | Crear workspace en Sanity con `proyectos@paisare.com` (proyecto dedicado) | **Confirmado 2026-04-28** — cuenta a crear por equipo |
+| I3 | DNS en servidor websupport — añadir CNAME `nuevo.paisare.com → CF Pages URL` para Fases 2–7. En Fase 8: transferir dominio a Cloudflare Registrar (elimina websupport) | **Confirmado 2026-04-28** — websupport controla el DNS actualmente |
 | I4 | Crear cuenta de GitHub (o confirmar repo `reguer/paisare-redesign`) como repositorio de despliegue | Confirmado — ya existe |
+
+**Nota hosting (2026-04-28):** Cloudflare Pages es el hosting principal gratuito Y el failover de Umbrel Pro. No se necesita un tercer servicio. Arquitectura: CF Pages (siempre activo) + Umbrel Pro (Fase 9, self-hosted, CF como respaldo automático).
 
 ### CONTENIDO (bloquean Fase 3 y 4)
 
