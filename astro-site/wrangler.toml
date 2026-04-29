@@ -1,0 +1,9 @@
+name = "paisare-web"
+pages_build_output_dir = "dist"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+# Variables de entorno no sensibles — las sensibles van en el dashboard de CF Pages
+# (Settings → Environment variables → Add variable / Add secret)
+[vars]
+PUBLIC_SANITY_DATASET = "production"

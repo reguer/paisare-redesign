@@ -1,0 +1,111 @@
+---
+import { SITE } from '@lib/config'
+
+const year = new Date().getFullYear()
+---
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+
+    <div class="footer-brand">
+      <a href="/" aria-label={SITE.name + ' — inicio'}>
+        <img src="/logo-white.svg" alt={SITE.name} width="120" height="34" loading="lazy" />
+      </a>
+      <p>Paisajismo, jardines y construcción<br />en Querétaro y zona metropolitana.</p>
+    </div>
+
+    <nav aria-label="Enlaces del footer">
+      <h3>Navegación</h3>
+      <ul>
+        <li><a href="/servicios/">Servicios</a></li>
+        <li><a href="/portafolio/">Portafolio</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/nosotros/">Nosotros</a></li>
+        <li><a href="/contacto/">Contacto</a></li>
+        <li><a href="/faq/">Preguntas frecuentes</a></li>
+      </ul>
+    </nav>
+
+    <div class="footer-contact">
+      <h3>Contacto</h3>
+      <ul>
+        <li>
+          <a href={`tel:${SITE.phone.tel}`}>{SITE.phone.display}</a>
+        </li>
+        <li>
+          <a href={`https://wa.me/${SITE.whatsapp.number}`} target="_blank" rel="noopener noreferrer">
+            WhatsApp: {SITE.whatsapp.display}
+          </a>
+        </li>
+        <li>
+          <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+        </li>
+        <li>{SITE.hours.weekdays}</li>
+        <li>{SITE.hours.saturday}</li>
+        <li>
+          <a href={SITE.social.googleMaps} target="_blank" rel="noopener noreferrer">
+            {SITE.address.full}
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer-social">
+      <h3>Síguenos</h3>
+      <ul>
+        <li><a href={SITE.social.facebook}  target="_blank" rel="noopener noreferrer">Facebook</a></li>
+        <li><a href={SITE.social.instagram} target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <li><a href={SITE.social.linkedin}  target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href={SITE.social.pinterest} target="_blank" rel="noopener noreferrer">Pinterest</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© {year} {SITE.name}. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-primary-dark);
+    color: rgba(255,255,255,.8);
+    padding-top: 3rem;
+    font-size: .9rem;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr 1fr;
+    gap: 2rem;
+    padding-bottom: 2.5rem;
+  }
+  .footer-brand p {
+    margin-top: .75rem;
+    line-height: 1.5;
+    opacity: .7;
+  }
+  h3 {
+    color: #fff;
+    font-size: .75rem;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    margin-bottom: .75rem;
+  }
+  ul { list-style: none; display: flex; flex-direction: column; gap: .4rem; }
+  a { color: rgba(255,255,255,.7); transition: color .15s; }
+  a:hover { color: #fff; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.1);
+    padding: 1rem 0;
+    text-align: center;
+    font-size: .8rem;
+    opacity: .5;
+  }
+  @media (max-width: 900px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px) {
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+</style>

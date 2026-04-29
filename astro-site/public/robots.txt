@@ -1,0 +1,4 @@
+# robots.txt — Paisare
+# Versión completa con Disallow se configura en Story 8.2 (Epic 8 — SEO)
+User-agent: *
+Allow: /

@@ -1,0 +1,99 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro'
+import { SITE } from '@lib/config'
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: SITE.name,
+  url: SITE.url,
+  email: SITE.email,
+  telephone: SITE.phone.display,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: SITE.address.street,
+    addressLocality: SITE.address.city,
+    addressRegion: SITE.address.state,
+    addressCountry: SITE.address.country,
+  },
+  openingHours: ['Mo-Fr 08:30-18:00'],
+  sameAs: Object.values(SITE.social),
+}
+---
+
+<BaseLayout
+  title={`${SITE.name} — Paisajismo y jardines en Querétaro`}
+  description="Diseño y construcción de jardines, riego, lagos ornamentales y paisajismo residencial y corporativo en Querétaro."
+  activeRoute="/"
+  schema={schema}
+>
+  <section class="hero">
+    <div class="container">
+      <h1>Transformamos espacios<br />en jardines extraordinarios</h1>
+      <p>Paisajismo · Construcción · Riego · Lagos ornamentales<br />Querétaro y zona metropolitana</p>
+      <div class="hero-ctas">
+        <a
+          href={`https://wa.me/${SITE.whatsapp.number}?text=${encodeURIComponent(SITE.whatsapp.defaultMessage)}`}
+          class="btn btn-primary"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Cotizar proyecto
+        </a>
+        <a href="/portafolio/" class="btn btn-secondary">Ver portafolio</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ↓ Secciones completas se implementan en Epic 5 (Story 5.2) -->
+  <section class="under-construction container">
+    <p>
+      Sitio en construcción — pronto disponible en
+      <a href={`https://www.paisare.com`} target="_blank" rel="noopener noreferrer">paisare.com</a>.
+    </p>
+    <p>
+      ¿Tienes un proyecto? Escríbenos a
+      <a href={`mailto:${SITE.email}`}>{SITE.email}</a> o al
+      <a href={`https://wa.me/${SITE.whatsapp.number}`} target="_blank" rel="noopener noreferrer">
+        WhatsApp {SITE.whatsapp.display}
+      </a>.
+    </p>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    color: #fff;
+    padding: clamp(4rem, 10vw, 8rem) 0;
+    text-align: center;
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .hero p { opacity: .85; font-size: 1.1rem; margin-bottom: 2rem; }
+  .hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    padding: .875rem 2rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 1rem;
+    transition: transform .15s, opacity .15s;
+  }
+  .btn:hover { transform: translateY(-1px); opacity: .9; }
+  .btn-primary { background: #fff; color: var(--color-primary); }
+  .btn-secondary { background: rgba(255,255,255,.15); color: #fff; border: 2px solid rgba(255,255,255,.5); }
+
+  .under-construction {
+    padding: 4rem 0;
+    text-align: center;
+    color: var(--color-text-muted);
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+  }
+  .under-construction a { color: var(--color-accent); text-decoration: underline; }
+</style>

@@ -2,6 +2,49 @@
 
 Todos los cambios notables de este proyecto se documentan aqui.
 
+## 2026-04-28 — Fase 2: Setup infraestructura Astro + Sanity + Cloudflare (PR #6)
+
+**Rama:** `feat/fase-2-astro`  
+**Type:** Feature — Epic 3, Stories 3.1–3.5
+
+### Añadido — `astro-site/`
+- `package.json` — Astro 5, @astrojs/cloudflare, @sanity/client
+- `astro.config.mjs` — output hybrid, CF adapter (directory mode), path aliases
+- `tsconfig.json` — strict mode, path aliases @lib @components @layouts @styles
+- `wrangler.toml` — configuración Cloudflare Pages
+- `.env.example` — template con todas las variables (Apéndice D)
+- `src/lib/config.ts` — datos de contacto confirmados del cliente
+- `src/lib/sanity.ts` — cliente tipado con `sanityFetch<T>()`, seguro sin credenciales
+- `src/lib/queries.ts` — constantes GROQ para proyectos, artículos, servicios, FAQ, testimonios, productos, paginaCliente
+- `src/layouts/BaseLayout.astro` — layout con OG, Schema JSON-LD, Nav, Footer
+- `src/components/Nav.astro` — nav sticky responsive con hamburger nativo
+- `src/components/Footer.astro` — footer completo con datos reales
+- `src/pages/index.astro` — placeholder funcional con Schema LocalBusiness
+- `src/styles/global.css` — variables de diseño, reset, utilidades
+
+### Añadido — `sanity-studio/`
+- `sanity.config.ts` — workspace config (projectId desde env)
+- `schemaTypes/blockContent.ts` — Portable Text con links, imágenes y estilos
+- `schemaTypes/proyecto.ts` — 11 campos, validaciones, 6 categorías
+- `schemaTypes/articulo.ts` — 10 campos, publicado flag, orderings
+- `schemaTypes/servicio.ts` — 9 campos, proyectos relacionados
+- `schemaTypes/producto.ts` — 13 campos, rango de precio, hidden condicional
+- `schemaTypes/paginaCliente.ts` — actualizaciones array, documentos descargables
+- `schemaTypes/testimonio.ts` — 6 campos, plataformas, visible flag
+- `schemaTypes/faqItem.ts` — 5 campos, orden, categorías
+- `schemaTypes/pedido.ts` — creado por webhook MP, solo consulta
+- `schemaTypes/index.ts` — exporta los 9 tipos
+
+### Añadido — CI/CD e infraestructura
+- `.github/workflows/deploy.yml` — build Astro → deploy CF Pages en push a main + preview por PR
+- `docs/infra/cicd.md` — instrucciones completas de setup (secrets, env vars, CF dashboard)
+- `docs/infra/dns-map.md` — mapa DNS Fases 2–7 y plan de flip en Fase 8
+
+### Actualizado
+- `docs/PENDING.md` — I1, I2, I3 confirmados; nota sobre CF Pages como failover de Umbrel
+
+---
+
 ## 2026-04-28 — Merge PR #4 + Epics & Stories con apéndices técnicos completos
 
 **Rama:** `docs/epics-detallados` (PR #5 abierto)  
